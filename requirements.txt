@@ -122,7 +122,6 @@ PyRect==0.2.0
 pyRFC3339==1.1
 pyrsistent==0.19.3
 PyScreeze==0.1.28
-python-apt==2.4.0+ubuntu1
 python-dateutil==2.8.2
 python-debian===0.1.43ubuntu1
 python-json-logger==2.0.7
