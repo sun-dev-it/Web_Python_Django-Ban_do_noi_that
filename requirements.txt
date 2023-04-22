@@ -153,7 +153,6 @@ tinycss2==1.2.1
 tornado==6.2
 traitlets==5.9.0
 ufoLib2==0.13.1
-ufw==0.36.1
 unattended-upgrades==0.1
 unicodedata2==14.0.0
 uri-template==1.2.0
