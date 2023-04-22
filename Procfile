@@ -1,1 +1,1 @@
-web: gunicorn main.wsgi
+web: gunicorn web_ban_hang.wsgi
