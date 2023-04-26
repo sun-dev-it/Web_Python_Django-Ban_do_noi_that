@@ -9,3 +9,4 @@ def list(request):
 def post(request, id):
     post = Post.objects.get(id=id)
     return render(request, 'blog/post.html', {'post': post})
+
