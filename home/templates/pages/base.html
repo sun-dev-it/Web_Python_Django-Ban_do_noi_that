@@ -5,53 +5,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "{% static 'css/body.css' %}">
     <link rel="stylesheet" href = "{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href = "{% static 'css/change_boostrap.css' %}">
-    <link rel="stylesheet" href = "{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/mystyles.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/body.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
     <div class="container-fluid bd">
-        <div class="row">
-            <div class="col-sm-2">
-                <center><img src="{% static 'images/download.png' %}" class="logo"></center>
+        <div class="row header_web">
+            <div class="col-sm-3">
+                <center>
+                    <img src="{% static 'images/logo.png' %}" class="logo_web">
+                    <h1 class="title_web">Web đồ nội thất</h1>
+                </center>
             </div>
-
-            <div class="col-sm-10">
-                <center><h1>Blog đồ nội thất</h1></center>
+            <div class="col-sm-9">
+                <div class="row p-4">
+                    <div class="col-sm-6">
+                        Thanh tìm kiếm
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="nav-link dn-dk" href="/">Đăng nhập</a>
+                        <a class="nav-link dn-dk" href="/">Đăng kí</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <img src="{% static 'images/gio_hang.png' %}" class="gio_hang">
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <ul class="nav bg_pages_web">
+                        <li class="nav-item ">
+                          <a class="nav-link pages_web" href="/">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pages_web" href="{% url 'blog' %}">Bài viết</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pages_web" href="/">Thông tin cá nhân</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ</a>
+                        </li>
+                      </ul>
+                </div>
             </div>
-        </divz>
+        </div>
+
 
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="bs-slidebar">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Thông tin cá nhân</a>
+
+                        <li class="nav-item list_nav">
+                            <a class="nav-link" href="#">Bàn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog' %}">Bài viết</a>
+                            <a class="nav-link" href="#">Bộ bàn ăn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog' %}">Liên hệ</a>
+                            <a class="nav-link" href="#">Giường</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ghế</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tủ kệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sofa</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-9">
                 <div class="container-fluid">
                     {% block content %}
                     
                     {% endblock %}
-                    
                 </div>
             </div>     
         </div>
     </div>
 
     <footer>
-        <div class="container-fluid ft">
+        <div class="container-fluid footer_web">
             <a href="https://www.facebook.com/phat.le0109/">Facebook</a> | 
             <a href="#">Zalo</a> |
             <a href="#">Instagram</a>
