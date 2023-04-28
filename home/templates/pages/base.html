@@ -33,50 +33,38 @@
                         <img src="{% static 'images/gio_hang.png' %}" class="gio_hang">
                     </div>
                 </div>
-                <div class="col-sm-5">
-                    <ul class="nav bg_pages_web">
-                        <li class="nav-item ">
+                <div class="col-sm-8">
+                    <ul class="nav">
+                        <li class="col-sm-2 bg_pages_web">
                           <a class="nav-link pages_web" href="/">Trang Chủ</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="col-sm-2 bg_pages_web">
                             <a class="nav-link pages_web" href="{% url 'blog' %}">Bài viết</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link pages_web" href="/">Thông tin cá nhân</a>
+                        <li class="col-sm-2 bg_pages_web">
+                            <a class="nav-link pages_web" href="/">Cửa hàng</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="col-sm-2 bg_pages_web">
                             <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ</a>
                         </li>
-                      </ul>
+                    </ul>
                 </div>
             </div>
         </div>
-
-
+        
+        {% block slideweb %}
+                    
+        {% endblock %}
         <div class="row">
-            <div class="col-sm-3">
-                <div class="bs-slidebar">
-                    <ul class="nav flex-column">
-
-                        <li class="nav-item list_nav">
-                            <a class="nav-link" href="#">Bàn</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Bộ bàn ăn</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Giường</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ghế</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tủ kệ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sofa</a>
-                        </li>
-                    </ul>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+                <div class="bs-slidebar menu-nav" style="border: 2px solid #C1921A;border-radius: 15%; padding:10px; color:#C1921A; margin-top: 20px; font-size: 16px;">
+                    <a class="nav-link item-menu" href="#">Bàn</a>
+                    <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                    <a class="nav-link item-menu" href="#">Giường</a>
+                    <a class="nav-link item-menu" href="#">Ghế</a>
+                    <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                    <a class="nav-link item-menu" href="#">Sofa</a>
                 </div>
             </div>
             <div class="col-sm-9">
