@@ -1,0 +1,55 @@
+.title_web{
+    color: #C1921A;
+    font-weight:bold;
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.logo_web{
+    width:255px;
+    height:100px;
+}
+
+.header_web{
+    background:#ecdbb1;
+    padding-top: 10px;
+}
+
+.gio_hang{
+    background:#ecdbb1;
+    width:30px;
+    height:30px;
+    margin: 5px;
+    border-radius: 25%;
+
+}
+
+.dn-dk{
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight:bold;
+    color: #C1921A;
+}
+
+
+.pages_web{
+    margin:5px;
+    font-size: 20px;
+    font-weight:bold;
+    color: #C1921A;
+    border: 1px solid #C1921A
+}
+
+.bg_pages_web{
+    background: rgb(255, 255, 255);
+}
+
+.menu-nav{
+    padding: 10px;
+}
+
+.item-menu{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
