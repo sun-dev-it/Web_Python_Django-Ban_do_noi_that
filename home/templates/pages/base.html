@@ -39,7 +39,7 @@
                           <a class="nav-link pages_web" href="/">Trang Chủ</a>
                         </li>
                         <li class="col-sm-2 bg_pages_web">
-                            <a class="nav-link pages_web" href="{% url 'blog' %}">Bài viết</a>
+                            <a class="nav-link pages_web" href="{% url 'blog' %}">Blog</a>
                         </li>
                         <li class="col-sm-2 bg_pages_web">
                             <a class="nav-link pages_web" href="/">Cửa hàng</a>
@@ -51,32 +51,20 @@
                 </div>
             </div>
         </div>
-        
-        {% block slideweb %}
+
+
+        {% block sidebar %}
                     
         {% endblock %}
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-1">
-                <div class="bs-slidebar menu-nav" style="border: 2px solid #C1921A;border-radius: 15%; padding:10px; color:#C1921A; margin-top: 20px; font-size: 16px;">
-                    <a class="nav-link item-menu" href="#">Bàn</a>
-                    <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
-                    <a class="nav-link item-menu" href="#">Giường</a>
-                    <a class="nav-link item-menu" href="#">Ghế</a>
-                    <a class="nav-link item-menu" href="#">Tủ kệ</a>
-                    <a class="nav-link item-menu" href="#">Sofa</a>
-                </div>
-            </div>
-            <div class="col-sm-9">
-                <div class="container-fluid">
-                    {% block content %}
-                    
-                    {% endblock %}
-                </div>
-            </div>     
-        </div>
-    </div>
 
+
+
+        {% block content %}
+                    
+        {% endblock %}
+
+
+        
     <footer>
         <div class="container-fluid footer_web">
             <a href="https://www.facebook.com/phat.le0109/">Facebook</a> | 

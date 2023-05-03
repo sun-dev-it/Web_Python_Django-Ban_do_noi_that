@@ -2,6 +2,19 @@
 
 {%block title %} Blog {% endblock %}
 
+{% load static %}
+
+
+
+{% block sidebar %}
+<link rel="stylesheet" href = "{% static 'css/home.css' %}">
+<div class="link-webs">
+    <i><u>Blog></u></i>
+</div>          
+{% endblock %}
+
+
+
 {% block content %}
 
 {% for post in Post %}

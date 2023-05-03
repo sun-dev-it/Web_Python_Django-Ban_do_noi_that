@@ -1,38 +1,61 @@
 {% extends "pages/base.html" %}
 
-{% load static %}
-<link rel="stylesheet" href = "{% static 'css/home.css' %}">
-
 {%block title %} Home {% endblock %}
 
-{% block slideweb %}
-<div id="carousel-Header" class="carousel slide" data-ride="carousel" >
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-Header" data-slide-to="0" class="active"></li>      
-        <li data-target="#carousel-Header" data-slide-to="1"></li>
-        <li data-target="#carousel-Header" data-slide-to="2"></li>
-        <li data-target="#carousel-Header" data-slide-to="3"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner"><!--img 1200x630-->
-        <div class="item active">
-            <img src="{% static 'images/slide1.jpg' %}" alt="..." class="carousel-img">
+{% load static %}
+
+{% block sidebar %}
+<link rel="stylesheet" href = "{% static 'css/home.css' %}">
+<div class="link-webs">
+    <i><u>Trang chủ></u></i>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-1">
+        <div class="bs-slidebar menu-navb">
+            <a class="nav-link item-menu" href="#">Bàn</a>
+            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+            <a class="nav-link item-menu" href="#">Giường</a>
+            <a class="nav-link item-menu" href="#">Ghế</a>
+            <a class="nav-link item-menu" href="#">Tủ kệ</a>
+            <a class="nav-link item-menu" href="#">Sofa</a>
         </div>
-        <div class="item">        
-            <img src="{% static 'images/slide2.jpg' %}" alt="..." class="carousel-img">        
-        </div>        
-    </div> 
-    <!-- Left Right Controls -->
-    <a class="left carousel-control" href="#carousel-Header" role="button" data-slide="prev">        
-        <span class="glyphicon glyphicon-chevron-left"></span>        
-    </a>
-    <a class="right carousel-control" href="#carousel-Header" role="button" data-slide="next">        
-        <span class="glyphicon glyphicon-chevron-right"></span>        
-    </a>
+    </div>
+    <div class="col-sm-9">
+        <div class="container-fluid">
+            <div id="carousel-Header" class="carousel slide" data-ride="carousel" >
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-Header" data-slide-to="0" class="active"></li>      
+                    <li data-target="#carousel-Header" data-slide-to="1"></li>
+                    <li data-target="#carousel-Header" data-slide-to="2"></li>
+                    <li data-target="#carousel-Header" data-slide-to="3"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner"><!--img 1200x630-->
+                    <div class="item active">
+                        <img src="{% static 'images/slide1.jpg' %}" alt="..." class="carousel-img">
+                    </div>
+                    <!--<div class="item">        
+                        <img src="{% static 'images/slide2.jpg' %}" alt="..." class="carousel-img">        
+                    </div>-->        
+                </div> 
+                <!-- Left Right Controls -->
+                <a class="left carousel-control" href="#carousel-Header" role="button" data-slide="prev">        
+                    <span class="glyphicon glyphicon-chevron-left"></span>        
+                </a>
+                <a class="right carousel-control" href="#carousel-Header" role="button" data-slide="next">        
+                    <span class="glyphicon glyphicon-chevron-right"></span>        
+                </a>
+            </div>
+        </div>
+    </div>     
 </div>
 
 {% endblock %}
+
+
 
 {% block content %}
 

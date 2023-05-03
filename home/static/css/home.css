@@ -1,7 +1,9 @@
+.link-webs{
+    margin: 20px;
+}
 .carousel-img{
-    width: 100vw;
-    height: 100vh;
-    margin: -15px;
+    width: 600px;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
 }
