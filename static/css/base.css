@@ -1,9 +1,9 @@
 .title_web{
-    color: #C1921A;
+    color: #f8f8f8;
     font-weight:bold;
     font-size: 28px;
     font-family:courier;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .logo_web{
@@ -12,12 +12,12 @@
 }
 
 .header_web{
-    background:#ecdbb1;
-    padding-top: 10px;
+    background:#1a1a1a;
+    padding: 15px;
 }
 
 .gio_hang{
-    background:#ecdbb1;
+    background:#1a1a1a;
     width:30px;
     height:30px;
     margin: 5px;
@@ -30,38 +30,86 @@
     font-size: 16px;
     font-weight:bold;
     font-family:verdana;
-    color: #C1921A;
+    color: #fcfcfc;
 }
 
+.thongtin{
+    font-weight:bold;
+    text-align: center;
+    font-family:verdana;
+    color: #c4c4c4;
+}
 
 .pages_web{
     text-align: center;
     font-weight: bold;
     font-size: 20px;
     font-family:verdana;
-    color: #C1921A;
+    color: #000000;
+}
+.pages_web:hover{
+    color: rgb(255, 255, 255);
+    background-color: #1a1a1a;
 }
 
 .bg_pages_web{
     background: rgb(255, 255, 255);
 }
 
-.menu-nav{
-    padding: 10px;
-}
-
 .item-menu{
-    margin: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
+    line-height: 1.6;
+    white-space: nowrap;
+    display: block;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    right: 0;
+    left: auto;
+    transition: .75s;/*hiệu ứng hover chạy nhanh chậm chỗ này*/
+}
+.item-menu:before {
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: .25s;/*hiệu ứng hover đen chỗ này*/
+    z-index: -1;
+}
+.item-menu:hover::before{
+    margin: 10px;
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+.item-menu:hover{
+    margin: 10px;
+    color: whitesmoke;
+    padding-left: 20px;
+    background: black;
 }
 
-.menu-navb{
+.menu-nav{
     padding:10px; 
-    color:#C1921A; 
+    color: #000000;
     margin-top: 20px; 
     font-size: 18px;
-    font-family:courier;
-    border: 2px solid #C1921A;
-    border-radius: 30px;
+    font-family:verdana;
+    border-top: 2px solid #000000;
+    font-weight: bold;
+}
+
+.under-menu{
+    margin-left: 3px;
+    border-top: 2px solid black;
+}
+
+.link-webs{
+    margin: 20px;
+    font-size: 14px;
+    color: black;
 }

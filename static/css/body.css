@@ -4,7 +4,9 @@ html, body{
 
 .bd{
     min-height: 95%;
-    font-weight: 400px;
-    font-family:courier,arial,helvetica;
+}
+
+.ft{
+    height: 5%;
 }
 

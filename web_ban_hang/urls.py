@@ -22,7 +22,9 @@ from django.conf.urls import handler404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('blog/',  include('blog.urls'))
+    path('blog/',  include('blog.urls')),
+    path('tuvannoithat/',  include('tuvannoithat.urls')),
+    path('dichvu/',  include('dichvu.urls')),
 ] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

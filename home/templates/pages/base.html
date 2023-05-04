@@ -9,6 +9,7 @@
     <link rel="stylesheet" href = "{% static 'css/change_boostrap.css' %}">
     <link rel="stylesheet" href = "{% static 'css/base.css' %}">
     <link rel="stylesheet" href = "{% static 'css/body.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/home.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -16,23 +17,31 @@
         <div class="row header_web">
             <div class="col-sm-3">
                 <center>
-                    <img src="{% static 'images/logo.png' %}" class="logo_web">
+                    <a class="nav-link" href="/"><img src="{% static 'images/logo.png' %}" class="logo_web"></a>
                     <h1 class="title_web">Web đồ nội thất</h1>
                 </center>
             </div>
             <div class="col-sm-9">
-                <div class="row p-4">
-                    <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6 dn-dk">
                         Thanh tìm kiếm
                     </div>
                     <div class="col-sm-2">
+                        <br>
                         <a class="nav-link dn-dk" href="/">Đăng nhập</a>
                         <a class="nav-link dn-dk" href="/">Đăng kí</a>
                     </div>
                     <div class="col-sm-1">
-                        <br>
+                        <br><br>
                         <img src="{% static 'images/gio_hang.png' %}" class="gio_hang">
                     </div>
+                </div>
+                <br>
+                <br>
+                <div class="row thongtin">
+                    <div class="col-sm-2"> Miễn phí giao hàng</div>
+                    <div class="col-sm-2"> Hoạt động: <i>24/7</i></div>
+                    <div class="col-sm-2"> Hotline: <i>0941436774</i></div>
                 </div>
             </div>
         </div>
@@ -44,17 +53,17 @@
                     <li class="col-sm-2 bg_pages_web">
                       <a class="nav-link pages_web" href="/">Trang Chủ</a>
                     </li>
+                    <li class="col-sm-3 bg_pages_web">
+                        <a class="nav-link pages_web" href="{% url 'tuvannoithat' %}">Tư vấn nội thất</a>
+                    </li>
                     <li class="col-sm-2 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'blog' %}">Sản Phẩm</a>
+                        <a class="nav-link pages_web" href="{% url 'dichvu' %}">Dịch vụ</a>
                     </li>
                     <li class="col-sm-3 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'contact' %}">Tư vấn nội thất</a>
+                        <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng</a>
                     </li>
                     <li class="col-sm-2 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'blog' %}">Dịch vụ</a>
-                    </li>
-                    <li class="col-sm-2 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'blog' %}">Tin tức</a>
+                        <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ</a>
                     </li>
                 </ul>
             </div>
