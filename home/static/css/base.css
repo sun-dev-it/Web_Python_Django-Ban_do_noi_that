@@ -46,22 +46,18 @@
     background: rgb(255, 255, 255);
 }
 
-.menu-nav{
-    padding: 10px;
-}
-
 .item-menu{
     margin: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.menu-navb{
+.menu-nav{
     padding:10px; 
     color:#C1921A; 
     margin-top: 20px; 
     font-size: 18px;
-    font-family:courier;
-    border: 2px solid #C1921A;
-    border-radius: 30px;
+    font-family:verdana;
+    border-top: 2px solid #C1921A;
+    font-weight: bold;
 }
