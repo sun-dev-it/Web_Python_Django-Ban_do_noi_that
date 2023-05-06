@@ -11,13 +11,13 @@
     <div class="link-webs">
         <i><u>Góc cảm hứng></u></i>
     </div>
-    <div class="row">
+    <div class="row container-fluid">
         <div class="col-sm-6"></div>
         <div class="col-sm-6">
             <div class="bs-slidebar menu-nav">
-                <a class="nav-link item-menu" href="#">Phong cách indochine</a>
-                <a class="nav-link item-menu" href="#">Bí ẩn wabi sabi</a>
-                <a class="nav-link item-menu" href="#">Sức hấp dẫn phong cách loft</a>
+                <a class="nav-link" href="#">Phong cách indochine</a>
+                <a class="nav-link" href="#">Bí ẩn wabi sabi</a>
+                <a class="nav-link" href="#">Sức hấp dẫn phong cách loft</a>
             </div>
         </div>
     </div>
@@ -28,26 +28,13 @@
 
 
 {% block content %}
-
-<div class="row">
-    <div class="col-sm-7"></div>
-    <div class="col-sm-3">
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="under-menu col-sm-7"></div>
-        </div>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-sm-6">
-        {% for post in Post %}
-        <h4>{{post.date|date:"d-m-Y"}} <a href="/blog/{{post.id}}">{{post.title}}</a></h4>
+<div class="container-fluid">
     
-        <img src="{{post.images.url}}" width="500px" height="300px"/>
-    {% endfor %}
-    </div>
-</div>
+    {% for post in Post %}
+    <h4>{{post.date|date:"d-m-Y"}} <a href="/blog/{{post.id}}">{{post.title}}</a></h4>
 
+    <img src="{{post.images.url}}" width="500px" height="300px"/>
+    {% endfor %}
+
+</div>
 {% endblock %}

@@ -9,8 +9,8 @@
     <link rel="stylesheet" href = "{% static 'css/change_boostrap.css' %}">
     <link rel="stylesheet" href = "{% static 'css/base.css' %}">
     <link rel="stylesheet" href = "{% static 'css/body.css' %}">
-    <link rel="stylesheet" href = "{% static 'css/home.css' %}">
     <title>{% block title %} {% endblock %}</title>
+    
 </head>
 <body>
     <div class="container-fluid bd">
@@ -31,7 +31,7 @@
                         <a class="nav-link dn-dk" href="/">Đăng nhập</a>
                         <a class="nav-link dn-dk" href="/">Đăng kí</a>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-1 khung_gio">
                         <br><br>
                         <img src="{% static 'images/gio_hang.png' %}" class="gio_hang">
                     </div>
@@ -48,22 +48,70 @@
 
         <div class="row">
             <div class="col-sm-3"></div>
-            <div class="col-sm-5">
-                <ul class="nav">
-                    <li class="col-sm-2 bg_pages_web">
-                      <a class="nav-link pages_web" href="/">Trang Chủ</a>
+            <div class="col-sm-6">
+                <ul class="nav main_hover" id="main-menu">
+
+                    <style>
+                        .main_hover#main-menu .hover_menu_web{
+                            display: none;
+                        }
+                        .main_hover#main-menu li:hover .hover_menu_web{
+                            display: block;
+                        }
+                    </style>
+
+                    <li class="col-sm-2">
+                        <a class="nav-link pages_web" href="/">Trang Chủ <i class="mui_ten down"></i></a>
+                        <div class="animated">
+                            <ul class="hover_menu_web">
+                                <li class="nav"><a href="#" class="nav-link text-w">Bàn</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Bộ bàn ăn</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Giường</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Ghế</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Tủ</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Kệ</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Sofa</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Đồ trang trí</a></li>
+                                <li class="nav"><a href="#" class="nav-link text-w">Đồ dùng nhà bếp</a></li>
+
+                            </ul>
+                        </div>
                     </li>
+
                     <li class="col-sm-3 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'tuvannoithat' %}">Tư vấn nội thất</a>
+                        <a class="nav-link pages_web" href="{% url 'tuvannoithat' %}">Tư vấn nội thất <i class="mui_ten down"></i></a>
+                        <ul class="hover_menu_web">
+                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                        </ul>
                     </li>
+
                     <li class="col-sm-2 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'dichvu' %}">Dịch vụ</a>
+                        <a class="nav-link pages_web" href="{% url 'dichvu' %}">Dịch vụ <i class="mui_ten down"></i></a>
+                        <ul class="hover_menu_web">
+                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                        </ul>
                     </li>
+
                     <li class="col-sm-3 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng</a>
+                        <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng <i class="mui_ten down"></i></a>
+                        <ul class="hover_menu_web">
+                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                        </ul>
                     </li>
+
                     <li class="col-sm-2 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ</a>
+                        <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ <i class="mui_ten down"></i></a>
+                        <ul class="hover_menu_web">
+                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
+                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -77,7 +125,7 @@
                 {% endblock %}
             </div>
     
-            <div class="col-sm-5">
+            <div class="col-sm-5 content-web">
                 {% block content %}
                         
                 {% endblock %}

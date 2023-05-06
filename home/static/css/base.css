@@ -1,3 +1,4 @@
+/* header */
 .title_web{
     color: #f8f8f8;
     font-weight:bold;
@@ -12,16 +13,20 @@
 }
 
 .header_web{
-    background:#1a1a1a;
+    background:#222222;
     padding: 15px;
 }
 
 .gio_hang{
-    background:#1a1a1a;
+    background:#222222;
     width:30px;
     height:30px;
     margin: 5px;
     border-radius: 25%;
+}
+
+.khung_gio{
+    text-align: center;
 }
 
 .dn-dk{
@@ -32,6 +37,10 @@
     font-family:verdana;
     color: #fcfcfc;
 }
+.dn-dk:hover{
+    color: rgb(255, 255, 255);
+    background-color: #3f3f3f;
+}
 
 .thongtin{
     font-weight:bold;
@@ -40,24 +49,93 @@
     color: #c4c4c4;
 }
 
+
+
+
+
+
+
+
+
+
+/* nav */
+
 .pages_web{
     text-align: center;
-    font-weight: bold;
-    font-size: 20px;
     font-family:verdana;
+    font-weight: bold;
+    font-size: 18px;
     color: #000000;
+    background:#ffffff;
 }
 .pages_web:hover{
     color: rgb(255, 255, 255);
-    background-color: #1a1a1a;
+    background-color: #222222;
 }
 
-.bg_pages_web{
-    background: rgb(255, 255, 255);
+/* khung hover menu của web */
+.hover_menu_web{
+    position: absolute;
+    box-sizing: border-box;
+    margin-left: 30px;
+}
+
+/* danh sách hover menu của web */
+.text-w{
+    line-height: 1.6;
+    white-space: nowrap;
+    display: block;
+    font-family:verdana;
+    font-weight: bold;
+    min-width: 200px;
+    background-color: #222222;
+    color: #ffffff;
+    right: 0;
+    left: auto;
+    transition: .75s;/*hiệu ứng hover chạy nhanh chậm*/
+}
+.text-w:before {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: .25s;/*hiệu ứng hover đen chỗ này*/
+    z-index: -1;
+}
+.text-w:hover::before{
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+.text-w:hover{
+    color: #ffffff;
+    padding-left: 28px;
+    background-color: #3d3d3d;
+}
+
+
+/* tạo mũi tên bên đề mục */
+.mui_ten{
+    border: 3px solid transparent;
+    border-top: 3px solid;
+    border-right: 3px solid;
+    display: inline-block;
+}
+.down{
+    margin:5px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.right{
+    margin: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
 
 .item-menu{
-    margin: 10px;
     line-height: 1.6;
     white-space: nowrap;
     display: block;
@@ -66,10 +144,9 @@
     position: relative;
     right: 0;
     left: auto;
-    transition: .75s;/*hiệu ứng hover chạy nhanh chậm chỗ này*/
+    transition: .75s;/*hiệu ứng hover chạy nhanh chậm*/
 }
 .item-menu:before {
-    margin: 10px;
     position: absolute;
     top: 0;
     left: auto;
@@ -81,13 +158,11 @@
     z-index: -1;
 }
 .item-menu:hover::before{
-    margin: 10px;
     width: 100%;
     left: 0;
     right: auto;
 }
 .item-menu:hover{
-    margin: 10px;
     color: whitesmoke;
     padding-left: 20px;
     background: black;
@@ -103,13 +178,34 @@
     font-weight: bold;
 }
 
-.under-menu{
-    margin-left: 3px;
-    border-top: 2px solid black;
-}
-
 .link-webs{
     margin: 20px;
     font-size: 14px;
     color: black;
 }
+
+
+
+
+
+
+
+
+
+
+/* content */
+
+.content-web{
+    padding: 70px 10px 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* foooter */
