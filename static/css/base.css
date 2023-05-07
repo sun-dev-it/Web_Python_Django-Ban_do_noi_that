@@ -95,6 +95,7 @@
     transition: .75s;/*hiệu ứng hover chạy nhanh chậm*/
 }
 .text-w:before {
+    content: "";
     position: absolute;
     top: 0;
     left: auto;
@@ -147,6 +148,7 @@
     transition: .75s;/*hiệu ứng hover chạy nhanh chậm*/
 }
 .item-menu:before {
+    content: "";
     position: absolute;
     top: 0;
     left: auto;
