@@ -35,11 +35,11 @@
     font-size: 16px;
     font-weight:bold;
     font-family:verdana;
-    color: #fcfcfc;
+    color: #f1f1f1;
 }
 .dn-dk:hover{
     color: rgb(255, 255, 255);
-    background-color: #3f3f3f;
+    background-color: #575757;
 }
 
 .thongtin{
@@ -76,45 +76,13 @@
 /* khung hover menu của web */
 .hover_menu_web{
     position: absolute;
-    box-sizing: border-box;
-    margin-left: 30px;
-}
-
-/* danh sách hover menu của web */
-.text-w{
-    line-height: 1.6;
-    white-space: nowrap;
-    display: block;
-    font-family:verdana;
-    font-weight: bold;
-    min-width: 200px;
-    background-color: #222222;
-    color: #ffffff;
-    right: 0;
-    left: auto;
-    transition: .75s;/*hiệu ứng hover chạy nhanh chậm*/
-}
-.text-w:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: auto;
-    right: 0;
-    width: 0;
-    height: 100%;
-    background-color: black;
-    transition: .25s;/*hiệu ứng hover đen chỗ này*/
-    z-index: -1;
-}
-.text-w:hover::before{
-    width: 100%;
-    left: 0;
-    right: auto;
-}
-.text-w:hover{
-    color: #ffffff;
-    padding-left: 28px;
-    background-color: #3d3d3d;
+    margin-left: 1%;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: -2px 1px 2px rgb(51, 51, 51);
+    padding:0px; 
+    color: #000000; 
+    background:#ffffff;
+    z-index: 2000;
 }
 
 
@@ -138,14 +106,15 @@
 
 .item-menu{
     line-height: 1.6;
-    white-space: nowrap;
     display: block;
     color: black;
     font-weight: bold;
+    font-size: 18px;
     position: relative;
     right: 0;
     left: auto;
-    transition: .75s;/*hiệu ứng hover chạy nhanh chậm*/
+    transition: .8s;/*hiệu ứng hover chạy nhanh chậm*/
+    padding: 7px 2px 6px 2px;
 }
 .item-menu:before {
     content: "";
@@ -170,35 +139,47 @@
     background: black;
 }
 
+
 .menu-nav{
     padding:10px; 
     color: #000000;
     margin-top: 20px; 
     font-size: 18px;
     font-family:verdana;
-    border-top: 2px solid #000000;
     font-weight: bold;
 }
 
+
+/* đường dẫn link */
 .link-webs{
-    margin: 20px;
+    margin:5px;
     font-size: 14px;
     color: black;
 }
 
 
+.menu{
+    height: 100vh;
+    min-width: 100px;
+    position: sticky;/*chưa tối ưu hóa cho trình duyệt Internet Explorer*/
+    position: -webkit-sticky;/*tối ưu hóa safari*/
+    top: 0;
+    z-index: 1000;
+    transition: background-color 1s ease;
+    overflow-y: hidden;/*hidden phần menu background thừa*/
+    margin-left: 100px;
+}
 
 
-
-
-
-
+.border_right{
+    border-right: 2px solid black;
+}
 
 
 /* content */
 
 .content-web{
-    padding: 70px 10px 10px 10px;
+    padding: 30px 10px 40px 30px;
 }
 
 
@@ -211,3 +192,4 @@
 
 
 /* foooter */
+

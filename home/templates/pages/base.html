@@ -9,10 +9,13 @@
     <link rel="stylesheet" href = "{% static 'css/change_boostrap.css' %}">
     <link rel="stylesheet" href = "{% static 'css/base.css' %}">
     <link rel="stylesheet" href = "{% static 'css/body.css' %}">
+    <link rel="stylesheet" href = "{% static 'js/bootstrap.bundle.min.js' %}">
     <title>{% block title %} {% endblock %}</title>
     
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <div class="container-fluid bd">
         <div class="row header_web">
             <div class="col-sm-3">
@@ -62,17 +65,16 @@
 
                     <li class="col-sm-2">
                         <a class="nav-link pages_web" href="/">Trang Chủ <i class="mui_ten down"></i></a>
-                        <div class="animated">
+                        <div>
                             <ul class="hover_menu_web">
-                                <li class="nav"><a href="#" class="nav-link text-w">Bàn</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Bộ bàn ăn</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Giường</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Ghế</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Tủ</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Kệ</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Sofa</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Đồ trang trí</a></li>
-                                <li class="nav"><a href="#" class="nav-link text-w">Đồ dùng nhà bếp</a></li>
+                                <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                                <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                                <a class="nav-link item-menu" href="#">Giường</a>
+                                <a class="nav-link item-menu" href="#">Ghế</a>
+                                <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                                <a class="nav-link item-menu" href="#">Sofa</a>
+                                <a class="nav-link item-menu" href="#">Đồ trang trí</a>
+                                <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
 
                             </ul>
                         </div>
@@ -81,36 +83,56 @@
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'tuvannoithat' %}">Tư vấn nội thất <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                            <a class="nav-link item-menu" href="#">Giường</a>
+                            <a class="nav-link item-menu" href="#">Ghế</a>
+                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                            <a class="nav-link item-menu" href="#">Sofa</a>
+                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
+                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
                         </ul>
                     </li>
 
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'dichvu' %}">Dịch vụ <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                            <a class="nav-link item-menu" href="#">Giường</a>
+                            <a class="nav-link item-menu" href="#">Ghế</a>
+                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                            <a class="nav-link item-menu" href="#">Sofa</a>
+                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
+                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
                         </ul>
                     </li>
 
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                            <a class="nav-link item-menu" href="#">Giường</a>
+                            <a class="nav-link item-menu" href="#">Ghế</a>
+                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                            <a class="nav-link item-menu" href="#">Sofa</a>
+                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
+                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
                         </ul>
                     </li>
 
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <li class="nav"><a href="#" class="nav-link text-w">1</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">2</a></li>
-                            <li class="nav"><a href="#" class="nav-link text-w">3</a></li>
+                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                            <a class="nav-link item-menu" href="#">Giường</a>
+                            <a class="nav-link item-menu" href="#">Ghế</a>
+                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                            <a class="nav-link item-menu" href="#">Sofa</a>
+                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
+                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
                         </ul>
                     </li>
                 </ul>
@@ -119,13 +141,13 @@
 
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 menu">
                 {% block sidebar %}
                         
                 {% endblock %}
             </div>
-    
-            <div class="col-sm-5 content-web">
+            <div class="col-sm-6 content-web">
                 {% block content %}
                         
                 {% endblock %}
@@ -141,5 +163,7 @@
             <a href="#">Instagram</a>
         </div>
     </footer>
+
+    
 </body>
 </html>
