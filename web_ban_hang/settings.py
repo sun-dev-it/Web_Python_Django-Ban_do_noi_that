@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'dichvu',
-    'tuvannoithat',
+    'sanpham',
 ]
 
 MIDDLEWARE = [

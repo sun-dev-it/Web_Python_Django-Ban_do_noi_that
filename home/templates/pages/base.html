@@ -21,7 +21,6 @@
             <div class="col-sm-3">
                 <center>
                     <a class="nav-link" href="/"><img src="{% static 'images/logo.png' %}" class="logo_web"></a>
-                    <h1 class="title_web">Web đồ nội thất</h1>
                 </center>
             </div>
             <div class="col-sm-9">
@@ -29,13 +28,36 @@
                     <div class="col-sm-6 dn-dk">
                         Thanh tìm kiếm
                     </div>
-                    <div class="col-sm-2">
-                        <br>
-                        <a class="nav-link dn-dk" href="/">Đăng nhập</a>
-                        <a class="nav-link dn-dk" href="/">Đăng kí</a>
+                    <div class="col-sm-2 dk-dn-mg">
+                        {% if user.username %}
+                            <div class="pf_hover" id="pf">
+
+                                <style>
+                                    .pf_hover#pf .hover_pf{
+                                        visibility: hidden;
+                                        opacity: 0;
+                                        transition: visibility 0s, opacity 0.6s ease-out;
+                                    }
+                                    .pf_hover#pf .pf:hover .hover_pf{
+                                        visibility: visible;
+                                        opacity: 1;
+                                    }
+                                </style>
+                                <div class="pf">
+                                    <a class="dn-dk">{{user.username}} <i class="mui_ten down"></i></a>
+                                    <ul class="hover_pf">
+                                        <a class="dx" href="{% url 'logout' %}">Đăng xuất</a>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+
+                        {% else %}
+                            <a class="dn-dk" href="{% url 'login' %}">Đăng nhập</a> | <a class="dn-dk" href="{% url 'register' %}">Đăng kí</a>
+                        {% endif %}
                     </div>
-                    <div class="col-sm-1 khung_gio">
-                        <br><br>
+                    <div class="col-sm-1 dk-dn-mg">
                         <img src="{% static 'images/gio_hang.png' %}" class="gio_hang">
                     </div>
                 </div>
@@ -56,34 +78,35 @@
 
                     <style>
                         .main_hover#main-menu .hover_menu_web{
-                            display: none;
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: visibility 0s, opacity 0.6s ease-out;
                         }
                         .main_hover#main-menu li:hover .hover_menu_web{
-                            display: block;
+                            visibility: visible;
+                            opacity: 1;
                         }
                     </style>
 
                     <li class="col-sm-2">
                         <a class="nav-link pages_web" href="/">Trang Chủ <i class="mui_ten down"></i></a>
-                        <div>
-                            <ul class="hover_menu_web">
-                                <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
-                                <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
-                                <a class="nav-link item-menu" href="#">Giường</a>
-                                <a class="nav-link item-menu" href="#">Ghế</a>
-                                <a class="nav-link item-menu" href="#">Tủ kệ</a>
-                                <a class="nav-link item-menu" href="#">Sofa</a>
-                                <a class="nav-link item-menu" href="#">Đồ trang trí</a>
-                                <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
+                        <ul class="hover_menu_web">
+                            <a class="nav-link item-menu" href="#">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
+                            <a class="nav-link item-menu" href="#">Giường</a>
+                            <a class="nav-link item-menu" href="#">Ghế</a>
+                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
+                            <a class="nav-link item-menu" href="#">Sofa</a>
+                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
+                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
 
-                            </ul>
-                        </div>
+                        </ul>
                     </li>
 
                     <li class="col-sm-3 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'tuvannoithat' %}">Tư vấn nội thất <i class="mui_ten down"></i></a>
+                        <a class="nav-link pages_web" href="{% url 'sanpham' %}">Sản phẩm <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bàn</a>
                             <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
                             <a class="nav-link item-menu" href="#">Giường</a>
                             <a class="nav-link item-menu" href="#">Ghế</a>
@@ -97,7 +120,7 @@
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'dichvu' %}">Dịch vụ <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bàn</a>
                             <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
                             <a class="nav-link item-menu" href="#">Giường</a>
                             <a class="nav-link item-menu" href="#">Ghế</a>
@@ -111,7 +134,7 @@
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bàn</a>
                             <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
                             <a class="nav-link item-menu" href="#">Giường</a>
                             <a class="nav-link item-menu" href="#">Ghế</a>
@@ -125,7 +148,7 @@
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="#">Bàn</a>
                             <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
                             <a class="nav-link item-menu" href="#">Giường</a>
                             <a class="nav-link item-menu" href="#">Ghế</a>

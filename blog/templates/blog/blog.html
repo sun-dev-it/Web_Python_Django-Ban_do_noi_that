@@ -15,7 +15,6 @@
         <a class="nav-link item-menu" href="#">Phong cách indochine <i class="mui_ten right"></i></a>
         <a class="nav-link item-menu" href="#">Bí ẩn wabi sabi <i class="mui_ten right"></i></a>
         <a class="nav-link item-menu" href="#">Sức hấp dẫn phong cách loft<i class="mui_ten right"></i></a>
-      </div>
   </div>
 </div>
 
@@ -27,8 +26,10 @@
 <div class="container-fluid">
     
     {% for post in Post %}
+    <!--Tiêu đề và ngày đăng của bài viết-->
     <h4>{{post.date|date:"d-m-Y"}} <a href="/blog/{{post.id}}">{{post.title}}</a></h4>
 
+    <!--Ảnh của bài viết-->
     <img src="{{post.images.url}}" width="500px" height="300px"/>
     {% endfor %}
 
