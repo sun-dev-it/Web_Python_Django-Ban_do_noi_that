@@ -1,0 +1,285 @@
+/* header */
+.logo_web{
+    width:231px;
+    height:90px;
+}
+
+.dk-dn-mg{
+    margin-top: 30px;
+    color: #f1f1f1;
+}
+
+.header_web{
+    background:#222222;
+    padding: 15px;
+}
+
+.xe_giao_hang{
+    width:30px;
+    height:30px;
+    border-top-right-radius: 35%;
+    border-bottom-left-radius: 35%;
+}
+
+.gio_hang{
+    background:#222222;
+    width:30px;
+    height:30px;
+    border-top-right-radius: 35%;
+    border-bottom-left-radius: 35%;
+}
+
+.dn-dk{
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight:bold;
+    font-family:verdana;
+    color: #f1f1f1;
+}
+.dn-dk:hover{
+    color: rgb(255, 255, 255);
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.hover_dx{
+    position: absolute;
+    margin-left: 1%;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: -2px 1px 2px rgb(255, 255, 255);
+    padding:0px; 
+    color: #000000; 
+    background:#ffffff;
+    z-index: 2000;
+}
+
+.hover_dx{
+    margin-top: 3px;
+}
+.avt{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    margin-right:10px;
+}
+
+.pf_web{
+    text-align: center;
+    font-family:verdana;
+    font-weight: bold;
+    font-size: 16px;
+    color: #f1f1f1;
+}
+.pf_web:hover{
+    color: rgb(255, 255, 255);
+    background-color: #222222;
+}
+
+.dx{
+    display: block;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 1px 1px 0px 0px;
+}
+.dx:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(68, 68, 68);
+    border-radius: 5px;
+    margin: 1px 1px 0px 0px;
+}
+/* Hiệu ứng hover vào avt/tên trang cá nhân */
+.pf_hover#pf .hover_dx{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.6s ease-out;
+}
+.pf_hover#pf .pf-dk:hover .hover_dx{
+    visibility: visible;
+    opacity: 1;
+}
+
+.thongtin{
+    font-weight:bold;
+    text-align: center;
+    font-family:verdana;
+    color: #c4c4c4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* nav */
+
+.pages_web{
+    text-align: center;
+    font-family:verdana;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000000;
+    background:#ffffff;
+    padding: 16px 2px 16px 2px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius:4px ;
+}
+.pages_web:hover{
+    color: rgb(255, 255, 255);
+    background-color: #222222;
+}
+
+/* khung hover menu của web */
+.hover_menu_web{
+    position: absolute;
+    margin-left: 1%;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: -2px 1px 2px rgb(51, 51, 51);
+    padding:0px; 
+    color: #000000; 
+    background:#ffffff;
+    z-index: 2000;
+}
+/* Hiệu ứng hover hiện bản menu trên thanh- */
+.main_hover#main-menu .hover_menu_web{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease-out;
+}
+.main_hover#main-menu li:hover .hover_menu_web{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* tạo mũi tên bên đề mục */
+.mui_ten{
+    border: 3px solid transparent;
+    border-top: 3px solid;
+    border-right: 3px solid;
+    display: inline-block;
+}
+.down{
+    margin:5px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.right{
+    margin: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.item-menu{
+    line-height: 1.6;
+    display: block;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    font-family:verdana;
+    position: relative;
+    right: 0;
+    left: auto;
+    transition: .8s;/*hiệu ứng hover chạy nhanh chậm*/
+    padding: 7px 2px 6px 2px;
+    border-radius: 6px;
+    margin: 0 1px 1px 0;
+}
+.item-menu:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: .5s;/*hiệu ứng hover đen chỗ này*/
+    z-index: -1;
+    border-radius: 6px;
+    margin: 0 1px 1px 0;
+}
+.item-menu:hover::before{
+    width: 100%;
+    left: 0;
+    right: auto;
+    border-radius: 6px;
+    margin: 0 1px 1px 0;
+}
+.item-menu:hover{
+    color: whitesmoke;
+    padding-left: 20px;
+    background: black;
+    border-radius: 6px;
+    margin: 0 1px 1px 0;
+    padding-right: 18px;
+}
+
+
+.menu-nav{
+    color: #000000;
+    margin-top: 20px; 
+    font-size: 18px;
+    font-family:verdana;
+    font-weight: bold;
+}
+
+
+/* đường dẫn link */
+.link-webs{
+    margin:5px;
+    font-size: 15px;
+    color: black;
+}
+
+/* menu của từng trang */
+.menu{
+    height: 100vh;
+    min-width: 200px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 1s ease;
+    overflow-y: hidden;
+    padding-top: 25px;
+    background:#ffffff
+}
+
+
+.border_right{
+    border-right: 2px solid black;
+}
+
+
+
+/* content */
+
+.content-web{
+    margin: 40px 10px 40px 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* foooter */
+.ft{
+    background: 222222;
+}
