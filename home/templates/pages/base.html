@@ -8,6 +8,9 @@
     <link rel="stylesheet" href = "{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href = "{% static 'css/change_boostrap.css' %}">
     <link rel="stylesheet" href = "{% static 'css/base.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/dichvu.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/sanpham.css' %}">
     <link rel="stylesheet" href = "{% static 'css/body.css' %}">
     <link rel="stylesheet" href = "{% static 'js/bootstrap.bundle.min.js' %}">
     <title>{% block title %} {% endblock %}</title>
@@ -28,29 +31,19 @@
                     <div class="col-sm-6 dn-dk">
                         Thanh tìm kiếm
                     </div>
-                    <div class="col-sm-2 dk-dn-mg">
+                    <div class="col-sm-3 dk-dn-mg">
                         {% if user.username %}
-                            <div class="pf_hover" id="pf">
 
-                                <style>
-                                    .pf_hover#pf .hover_pf{
-                                        visibility: hidden;
-                                        opacity: 0;
-                                        transition: visibility 0s, opacity 0.6s ease-out;
-                                    }
-                                    .pf_hover#pf .pf:hover .hover_pf{
-                                        visibility: visible;
-                                        opacity: 1;
-                                    }
-                                </style>
-                                <div class="pf">
-                                    <a class="dn-dk">{{user.username}} <i class="mui_ten down"></i></a>
-                                    <ul class="hover_pf">
-                                        <a class="dx" href="{% url 'logout' %}">Đăng xuất</a>
-                                    </ul>
 
-                                </div>
+                        <ul class="nav pf_hover" id="pf">    
+                            <div class="pf-dk">
+                                <a class="dn-dk" href="/"><img src="{% static 'images/pf.png' %}" class="avt"> {{user.username}}</a>
+                                <ul class="hover_dx">
+                                    <a class="nav-link dx" href="#">Trang cá nhân</a>
+                                    <a class="nav-link dx" href="{% url 'logout' %}">Đăng xuất</a>
+                                </ul>
                             </div>
+                        </ul>
 
 
                         {% else %}
@@ -61,10 +54,10 @@
                         <img src="{% static 'images/gio_hang.png' %}" class="gio_hang">
                     </div>
                 </div>
-                <br>
-                <br>
                 <div class="row thongtin">
-                    <div class="col-sm-2"> Miễn phí giao hàng</div>
+                    <div class="col-sm-2">
+                        Miễn phí giao hàng
+                    </div>
                     <div class="col-sm-2"> Hoạt động: <i>24/7</i></div>
                     <div class="col-sm-2"> Hotline: <i>0941436774</i></div>
                 </div>
@@ -73,21 +66,8 @@
 
         <div class="row">
             <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <ul class="nav main_hover" id="main-menu">
-
-                    <style>
-                        .main_hover#main-menu .hover_menu_web{
-                            visibility: hidden;
-                            opacity: 0;
-                            transition: visibility 0s, opacity 0.6s ease-out;
-                        }
-                        .main_hover#main-menu li:hover .hover_menu_web{
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    </style>
-
+            <div class="col-sm-6 main">
+                <ul class="nav main_hover"  id="main-menu">
                     <li class="col-sm-2">
                         <a class="nav-link pages_web" href="/">Trang Chủ <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
@@ -148,33 +128,19 @@
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'contact' %}">Liên hệ <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="#">Bàn</a>
-                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
-                            <a class="nav-link item-menu" href="#">Giường</a>
-                            <a class="nav-link item-menu" href="#">Ghế</a>
-                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
-                            <a class="nav-link item-menu" href="#">Sofa</a>
-                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
-                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
+                            <a class="nav-link item-menu" href="#">Về chúng tôi</a>
+                            <a class="nav-link item-menu" href="#">Địa chỉ</a>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-2 menu">
-                {% block sidebar %}
+      
+        <div class="container-fluid">
+            {% block content %}
                         
-                {% endblock %}
-            </div>
-            <div class="col-sm-6 content-web">
-                {% block content %}
-                        
-                {% endblock %}
-            </div>
+            {% endblock %}
         </div>
     </div>
 

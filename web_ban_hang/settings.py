@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'dichvu',
     'sanpham',
+    'contact',
 ]
 
 MIDDLEWARE = [

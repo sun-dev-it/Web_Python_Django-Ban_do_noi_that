@@ -6,32 +6,34 @@
 
 
 
-{% block sidebar %}
-<div>
-    <div class="link-webs">
-        <i><u>Góc cảm hứng</u></i> >
-    </div>
-    <div class="border_right menu-nav">
-        <a class="nav-link item-menu" href="#">Phong cách indochine <i class="mui_ten right"></i></a>
-        <a class="nav-link item-menu" href="#">Bí ẩn wabi sabi <i class="mui_ten right"></i></a>
-        <a class="nav-link item-menu" href="#">Sức hấp dẫn phong cách loft<i class="mui_ten right"></i></a>
-  </div>
-</div>
-
-{% endblock %}
-
 
 
 {% block content %}
-<div class="container-fluid">
-    
-    {% for post in Post %}
-    <!--Tiêu đề và ngày đăng của bài viết-->
-    <h4>{{post.date|date:"d-m-Y"}} <a href="/blog/{{post.id}}">{{post.title}}</a></h4>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2 menu">
+            <div>
+                <a href="{% url 'blog' %}" class="link-webs"><i><u>Góc cảm hứng</u></i></a>>
+            </div>
+            <div class="border_right menu-nav">
+                <a class="nav-link item-menu" href="#">Phong cách indochine <i class="mui_ten right"></i></a>
+                <a class="nav-link item-menu" href="#">Bí ẩn wabi sabi <i class="mui_ten right"></i></a>
+                <a class="nav-link item-menu" href="#">Sức hấp dẫn phong cách loft<i class="mui_ten right"></i></a>
+            </div>
+        </div>
+        <div class="col-sm-6 content-web">
+            {% for post in Post %}
+                <!--Tiêu đề và ngày đăng của bài viết-->
+                <h4>{{post.date|date:"d-m-Y"}} <a href="/blog/{{post.id}}">{{post.title}}</a></h4>
+                <!--Ảnh của bài viết-->
+                <img src="{{post.image.url}}" class="col-sm-12" height="500px"/>
+            {% endfor %}
+            <br/>
+            <!--qua trang mới-->
+            {% if page_obj.has_next %}
+                <a href="{{request.path}}?page={{page_obj.next_page_number}}">Tiếp theo</a>
+            {% endif %}
+        </div>
+    </div>
 
-    <!--Ảnh của bài viết-->
-    <img src="{{post.images.url}}" width="500px" height="300px"/>
-    {% endfor %}
-
-</div>
 {% endblock %}

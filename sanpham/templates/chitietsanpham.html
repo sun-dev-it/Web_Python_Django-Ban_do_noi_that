@@ -1,0 +1,42 @@
+{% extends "pages/base.html" %}
+
+{%block title %} {{sanpham.TenSP}} {% endblock %}
+
+
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2 menu">
+        <a href="{% url 'sanpham' %}" class="link-webs"><i><u>Sản phẩm</u></i></a>>
+    </div>
+    <div class="col-sm-1 pd_ct"><a href="{% url 'sanpham' %}" class="back_sp col-sm-12">quay lại</a></div>
+    <div class="col-sm-4 pd_ct">
+        <img src="{{sanpham.image.url}}" class="col-sm-12"/>
+        <hr>
+        <div class="row">
+            <div class="ten_spct">{{sanpham.TenSP}}</div>
+            <div class="col-sm-6 gia_ct">{{sanpham.GiaSP}}<sup>đ</sup></div>
+            <div class="col-sm-6 al-right">Đánh giá: {{sanpham.DanhGia}} | Đã bán: {{sanpham.LuotMua}}</div>
+
+            <hr>
+        </div>
+
+        {% for comment in sanpham.comments.all %}
+        <b>{{comment.author}}</b>
+        <p>{{comment.date}}</p>
+        <p>{{comment.body|linebreaks}}</p>
+        {% endfor %}
+        
+        {% if user.username %}
+            <form action="{% url 'sanpham' sanpham.id %}" method='POST'>
+                {% csrf_token %}
+                <p><label>Bình luận: </label></p>
+                {{form.body}}
+                <br/>
+                <input type="submit" value="Bình luận"/>
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

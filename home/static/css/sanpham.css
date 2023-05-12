@@ -1,0 +1,81 @@
+.item-sp{padding-top: 12px;}
+
+.item-sp:hover{
+    background:rgb(231, 231, 231);
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.Gia{
+    font-size: 19px;
+    color: rgb(226, 0, 0);
+}
+
+.ban-danh_gia{
+    font-size: 12px;
+    font-family: verdana;
+}
+
+.ten_sp{
+    font-size: 25px;
+    font-family: verdana;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+.ten_sp:hover{color: rgb(78, 78, 78);}
+
+.image_sp {
+    margin-bottom: 10px;
+}
+.image_sp img{
+    width:300px;
+    height:180px;
+	display:block;
+	transition: all .3s ease;
+}
+.image_sp img:hover{transform: scale(1.3); /* cỡ zoom khi di chuột vào */} 
+.image_sp div{
+	display:block;
+	overflow: hidden;
+}
+
+
+/* Chi tiết sản phẩm */
+
+.pd_ct{
+    padding-top: 60px;
+}
+.back_sp{
+    color: rgb(255, 255, 255);
+    background: black;
+    text-align: center;
+    padding: 10px;
+    border:2px solid black;
+}
+
+.back_sp:hover{
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255)
+}
+
+.thongtin_sp{
+    padding: 5px 0 0 50px;
+}
+
+.ten_spct{
+    font-size: 27px;
+    font-family: verdana;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.al-right{
+    text-align: right;
+}
+
+.gia_ct{
+    font-size: 22px;
+    color: rgb(226, 0, 0);
+}

@@ -7,10 +7,6 @@ from django.http import HttpResponseRedirect
 def index(request):
     return render(request, 'pages/home.html')
 
-# Trang liên hệ
-def contact(request):
-    return render(request, 'pages/contact.html')
-
 # 
 def register(request):
     form = RegistrationForm()
