@@ -1,0 +1,39 @@
+{% extends "pages/base.html" %}
+
+{%block title %} Home {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="row bg_pf">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 menu_pf">
+    <div class="myprofile">
+      <img src="{% static 'images/avt.png' %}" class="avt"> 
+      {{user.username}}
+    </div>
+    <hr>
+    <nav>
+        <h3><a href="#hoso" class="pf_item">Hồ sơ</a></h3>
+        <h3><a href="#giohang" class="pf_item">Giỏ hàng</a></h3>
+        <h3><a href="#donhang" class="pf_item">Đơn hàng</a></h3>
+        <h3><a href="#sodu" class="pf_item">Số dư</a></h3>
+        <h3><a href="#doimatkhau" class="pf_item">Đổi mật khẩu</a></h3>
+    </nav>
+  </div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-4">
+    <section id="hoso"> 
+      <h4>Hồ sơ</h4>
+      <p>{{user.username}}</p>
+      <p>{{user.email}}</p>
+      <p>{{user.sex}}</p>
+      <p>{{user.birth}}</p>
+    </section>
+    <section id="giohang">giỏ hàng</section>
+    <section id="donhang">đơn hàng</section>
+    <section id="sodu">số dư</section>
+    <section id="doimatkhau">đổi mật khẩu</section>
+  </div>
+</div>
+{% endblock %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'dichvu',
     'sanpham',
     'contact',
+    'page_profile',
 ]
 
 MIDDLEWARE = [

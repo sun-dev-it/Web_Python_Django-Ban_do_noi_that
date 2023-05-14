@@ -1,4 +1,6 @@
-.item-sp{padding-top: 12px;}
+.item-sp{
+    padding-top: 12px;
+}
 
 .item-sp:hover{
     background:rgb(231, 231, 231);
@@ -12,7 +14,7 @@
 }
 
 .ban-danh_gia{
-    font-size: 12px;
+    font-size: 11px;
     font-family: verdana;
 }
 
@@ -45,18 +47,6 @@
 
 .pd_ct{
     padding-top: 60px;
-}
-.back_sp{
-    color: rgb(255, 255, 255);
-    background: black;
-    text-align: center;
-    padding: 10px;
-    border:2px solid black;
-}
-
-.back_sp:hover{
-    color: rgb(0, 0, 0);
-    background: rgb(255, 255, 255)
 }
 
 .thongtin_sp{

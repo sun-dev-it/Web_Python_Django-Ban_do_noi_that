@@ -1,9 +1,4 @@
 /* header */
-.logo_web{
-    width:231px;
-    height:90px;
-}
-
 .dk-dn-mg{
     margin-top: 30px;
     color: #f1f1f1;
@@ -11,18 +6,10 @@
 
 .header_web{
     background:#222222;
-    padding: 15px;
+    padding: 25px 10px 10px 10px;
 }
 
 .xe_giao_hang{
-    width:30px;
-    height:30px;
-    border-top-right-radius: 35%;
-    border-bottom-left-radius: 35%;
-}
-
-.gio_hang{
-    background:#222222;
     width:30px;
     height:30px;
     border-top-right-radius: 35%;
@@ -59,12 +46,7 @@
 .hover_dx{
     margin-top: 3px;
 }
-.avt{
-    width:30px;
-    height:30px;
-    border-radius: 50%;
-    margin-right:10px;
-}
+
 
 .pf_web{
     text-align: center;
@@ -281,5 +263,36 @@
 
 /* foooter */
 .ft{
-    background: 222222;
+    background: #222222;
+    padding:20px;
+}
+
+.h2_ft{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.h3_ft{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 16px; 
+}
+
+.ct_h2_ft h2{
+    width: 70%;
+    height: 80px;
+    padding: 10px;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.logo_web_ft{
+    width:70%
+}
+
+
+.form_login{
+    width: 500px;
+    min-height: 200px;
+    border: 1px solid black;
 }

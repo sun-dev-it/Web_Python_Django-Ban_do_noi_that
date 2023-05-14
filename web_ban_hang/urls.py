@@ -25,6 +25,7 @@ urlpatterns = [
     path('sanpham/',  include('sanpham.urls')),
     path('dichvu/',  include('dichvu.urls')),
     path('contact/',  include('contact.urls')),
+    path('page_profile/',  include('page_profile.urls')),
 ] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
