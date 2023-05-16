@@ -6,7 +6,6 @@ from django.conf import settings
 # Sản phẩm
 class SanPham(models.Model):
     TenSP = models.CharField(max_length=30)
-    LoaiSP = models.CharField(max_length=30)
     GiaSP = models.IntegerField()
     image = models.ImageField(null=True)
     DanhGia = 5
@@ -14,6 +13,7 @@ class SanPham(models.Model):
     TonKho = models.IntegerField()
     def __str__(self):
         return self.TenSP
+
 
 # Comment
 class Comment(models.Model):
