@@ -40,12 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
-    'blog',
-    'dichvu',
-    'sanpham',
-    'contact',
-    'page_profile',
+    'app_ban_hang',
 ]
 
 MIDDLEWARE = [

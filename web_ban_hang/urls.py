@@ -20,12 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),
-    path('blog/',  include('blog.urls')),
-    path('sanpham/',  include('sanpham.urls')),
-    path('dichvu/',  include('dichvu.urls')),
-    path('contact/',  include('contact.urls')),
-    path('page_profile/',  include('page_profile.urls')),
+    path('', include('app_ban_hang.urls')),
 ] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

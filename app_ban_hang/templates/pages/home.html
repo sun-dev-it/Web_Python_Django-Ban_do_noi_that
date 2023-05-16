@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{%block title %} Home {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 menu">
+    <a href="/" class="link-webs"><i><u>Trang chủ</u></i></a>>
+    <div class="menu-nav border_right">
+      <a class="nav-link item-menu" href="#">Trang chủ <i class="mui_ten right"></i></a>
+    </div>
+  </div>
+
+  <div class="col-sm-6 content-web">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'images/slide3.jpg' %}" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/slide4.jpg' %}" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/slide5.jpg' %}" class="d-block" alt="...">
+        </div>
+      </div>
+    
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <h3 class="topban"> TOP BÁN CHẠY </h3>
+  </div>
+
+</div>
+{% endblock %}
