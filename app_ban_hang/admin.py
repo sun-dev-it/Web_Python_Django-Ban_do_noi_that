@@ -6,7 +6,7 @@ class CommentInline(admin.TabularInline):
     model = Comment
 
 class SanPhamAdmin(admin.ModelAdmin):
-    list_display = ['TenSP', 'LoaiSP', 'GiaSP', 'LuotMua', 'TonKho', 'DanhGia']
+    list_display = ['TenSP', 'GiaSP', 'LuotMua', 'TonKho', 'DanhGia']
     list_filter = ['TonKho']
     search_fields = ['TenSP']
     inlines = [CommentInline]
