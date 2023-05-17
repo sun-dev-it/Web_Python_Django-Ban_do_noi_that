@@ -3,18 +3,19 @@
 }
 
 .gio_hang{
-    margin:0 0 3px 50px;
+    margin: 5px 3px 0 0;
+    width:38px;
+}
+
+.gio_hang_home{
+    margin: 0 0 3px 0px;
     width:27px;
-    height:24px;
+    height: 24px
 }
 
 .gio_hang_chitiet{
     margin-top: 3px;
-    padding:1px;
-    background:#ffffff;
-    width:46px;
-    border-top-right-radius: 35%;
-    border-bottom-left-radius: 35%;
+    width:47px;
 }
 
 .gio_hang_ct{
@@ -24,6 +25,16 @@
 
 
 .avt{
+    padding:3px;
+    background:rgb(255, 255, 255);
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    margin-right:10px;
+}
+
+.avt_cm{
+    margin-bottom: 3px;
     padding:3px;
     background:rgb(255, 255, 255);
     width:30px;
@@ -72,4 +83,13 @@
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #575757;
     --bs-gradient: none;
+}
+
+
+.icon_back{
+    margin-top: 25px;
+    text-align: center;
+}
+.back{
+    width: 35px;
 }
