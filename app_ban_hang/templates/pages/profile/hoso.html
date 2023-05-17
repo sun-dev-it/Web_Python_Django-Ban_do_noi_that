@@ -1,0 +1,19 @@
+{% extends "pages/profile/profile.html" %}
+{% block hoso %}
+
+<div class="khung-ct-pf"> 
+    <h4>Hồ sơ</h4>
+    <table>
+      <tr class="khung-pf">
+        <th>Tên</th>
+        <th class="al-right">{{user.username}}</th>
+      </tr>
+      <tr>
+        <th class="khung-pf">Email</th>
+        <th class="al-right">{{user.email}}</th>
+      </tr>
+    </table>
+</div>
+
+
+{% endblock hoso %}

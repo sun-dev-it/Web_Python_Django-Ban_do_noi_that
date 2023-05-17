@@ -1,4 +1,3 @@
-from django import forms
 import re
 from django.db import models
 from django.contrib.auth.models import User
@@ -51,3 +50,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ["body"]
+

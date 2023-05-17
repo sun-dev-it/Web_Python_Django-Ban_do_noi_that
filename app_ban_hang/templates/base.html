@@ -15,8 +15,8 @@
     <link rel="stylesheet" href = "{% static 'css/home.css' %}">
     <link rel="stylesheet" href = "{% static 'css/icon.css' %}">
     <link rel="stylesheet" href = "{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href = "{% static 'css/forms.css' %}">
     <link rel="stylesheet" href = "{% static 'css/body.css' %}">
-    <link rel="stylesheet" href = "{% static 'js/bootstrap.bundle.min.js' %}">
     <title>{% block title %} {% endblock %}</title>
     
 </head>
@@ -48,12 +48,14 @@
 
                         <ul class="nav pf_hover" id="pf">    
                             <div class="pf-dk">
-                                <a class="dn-dk" href="{% url 'profile' %}"><img src="{% static 'images/avt.png' %}" class="avt"> {{user.username}}</a> <img src="{% static 'images/giohang.png' %}" class="gio_hang">
+                                <a class="dn-dk" href="{% url 'hoso' %}"><img src="{% static 'images/avt.png' %}" class="avt"> {{user.username}}</a> 
                                 <ul class="hover_dx">
                                     <a class="nav-link dx" href="{% url 'profile' %}">Trang cá nhân</a>
                                     <a class="nav-link dx" href="{% url 'logout' %}">Đăng xuất</a>
                                 </ul>
                             </div>
+                            <a href="{% url 'giohang' %}"> <img src="{% static 'images/giohang.png' %}" class="gio_hang_home"></a>
+
                         </ul>
 
 
@@ -85,7 +87,7 @@
             <div class="col-sm-6 main">
                 <ul class="nav main_hover"  id="main-menu">
                     <li class="col-sm-2">
-                        <a class="nav-link pages_web" href="/">Trang Chủ <i class="mui_ten down"></i></a>
+                        <a class="nav-link pages_web" href="/"> Trang chủ<i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
                             <a class="nav-link item-menu" href="#">Trang chủ</a>
                         </ul>
@@ -94,14 +96,14 @@
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'sanpham' %}">Sản phẩm <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="#">Bàn</a>
-                            <a class="nav-link item-menu" href="#">Bộ bàn ăn</a>
-                            <a class="nav-link item-menu" href="#">Giường</a>
-                            <a class="nav-link item-menu" href="#">Ghế</a>
-                            <a class="nav-link item-menu" href="#">Tủ kệ</a>
-                            <a class="nav-link item-menu" href="#">Sofa</a>
-                            <a class="nav-link item-menu" href="#">Đồ trang trí</a>
-                            <a class="nav-link item-menu" href="#">Đồ dùng nhà bếp</a>
+                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
+                            <a class="nav-link item-menu" href="{% url 'bobanan' %}">Bộ bàn ăn</a>
+                            <a class="nav-link item-menu" href="{% url 'giuong' %}">Giường</a>
+                            <a class="nav-link item-menu" href="{% url 'ghe' %}">Ghế</a>
+                            <a class="nav-link item-menu" href="{% url 'tuke' %}">Tủ kệ</a>
+                            <a class="nav-link item-menu" href="{% url 'sofa' %}">Sofa</a>
+                            <a class="nav-link item-menu" href="{% url 'dotrangtri' %}">Đồ trang trí</a>
+                            <a class="nav-link item-menu" href="{% url 'dodungnhabep' %}">Đồ dùng nhà bếp</a>
                         </ul>
                     </li>
 
@@ -163,6 +165,7 @@
         </div>
     </footer>
 
+    <script src="{% static 'js/giohang.js' %}"> </script>
     
 </body>
 </html>

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{%block title %} Sản phẩm {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2 menu">
+        {% block linksp %} {% endblock linksp %}
+        <div class="border_right menu-nav">
+          <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'bobanan' %}">Bộ bàn ăn <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'giuong' %}">Giường <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'ghe' %}">Ghế <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'tuke' %}">Tủ kệ <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'sofa' %}">Sofa <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'dotrangtri' %}">Đồ trang trí <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{% url 'dodungnhabep' %}">Đồ dùng nhà bếp <i class="mui_ten right"></i></a>
+        </div>
+    </div>
+    <div class="col-sm-6 content-web">
+            
+        <div class="row">
+            {% for sanpham in SanPham %}
+                {% block allsp %} {% endblock allsp %}
+            {% endfor %}
+
+
+            {% block tiltle_sp1 %} {% endblock tiltle_sp1 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 1 %}
+                        {% block loaisp1 %} {% endblock loaisp1 %}
+                    {% endif %}
+                {% endfor %}
+            
+
+            {% block tiltle_sp2 %} {% endblock tiltle_sp2 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 2 %}
+                        {% block loaisp2 %} {% endblock loaisp2 %}
+                    {% endif %}
+                {% endfor %}
+
+
+            {% block tiltle_sp3 %} {% endblock tiltle_sp3 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 3 %}
+                        {% block loaisp3 %} {% endblock loaisp3 %}
+                    {% endif %}
+                {% endfor %}
+                
+
+            {% block tiltle_sp4 %} {% endblock tiltle_sp4 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 4 %}
+                        {% block loaisp4 %} {% endblock loaisp4 %}
+                    {% endif %}
+                {% endfor %}
+            
+
+            {% block tiltle_sp5 %} {% endblock tiltle_sp5 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 5 %}
+                        {% block loaisp5 %} {% endblock loaisp5 %}
+                    {% endif %}
+                {% endfor %}
+            
+                
+            {% block tiltle_sp6 %} {% endblock tiltle_sp6 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 6 %}
+                        {% block loaisp6 %} {% endblock loaisp6 %}
+                    {% endif %}
+                {% endfor %}
+
+
+            {% block tiltle_sp7 %} {% endblock tiltle_sp7 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 7 %}
+                        {% block loaisp7 %} {% endblock loaisp7 %}
+                    {% endif %}
+                {% endfor %}
+
+
+            {% block tiltle_sp8 %} {% endblock tiltle_sp8 %}
+                {% for sanpham in SanPham %}
+                    {% if sanpham.LoaiSP == 8 %}
+                        {% block loaisp8 %} {% endblock loaisp8 %}
+                    {% endif %}
+                {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

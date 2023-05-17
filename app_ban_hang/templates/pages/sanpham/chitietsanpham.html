@@ -8,9 +8,9 @@
 <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-2 menu">
-        <a href="{% url 'sanpham' %}" class="link-webs"><i><u>Sản phẩm</u></i></a>>
+        <i><a href="{% url 'sanpham' %}" class="link-webs"><u>Sản phẩm</u></a>><u class="link-webs">chi tiết sản phẩm</u></i>
     </div>
-    <div class="col-sm-1"><a href="{% url 'sanpham' %}" class="back_">Quay lại</a></div>
+    <div class="col-sm-1 icon_back"><a href="{% url 'sanpham' %}"> <img src="{% static 'images/back.png' %}" class="back"></a></div>
     <div class="col-sm-4 pd_ct">
         <img src="{{sanpham.image.url}}" class="col-sm-12"/>
         <div class="row">
@@ -18,7 +18,7 @@
                 <div class="ten_spct">{{sanpham.TenSP}}</div>
             </div>
             <div class="col-sm-5 gio_hang_ct">
-                <img src="{% static 'images/giohang.png' %}" class="gio_hang_chitiet">
+                <button><img src="{% static 'images/giohang_chitiet.png' %}" data-user={{user}} data-sanpham={{sanpham.id}} data-action ="add" class="gio_hang_chitiet update_giohang"></button>
             </div>
             <div class="col-sm-6 gia_ct">{{sanpham.GiaSP}}<sup>đ</sup></div>
             <div class="col-sm-6 al-right">Đánh giá: {{sanpham.DanhGia}} | Đã bán: {{sanpham.LuotMua}}</div>
@@ -27,9 +27,9 @@
         </div>
 
         {% for comment in sanpham.comments.all %}
-            <b>{{comment.author}}</b>
-            <p>{{comment.date}}</p>
+            <img src="{% static 'images/avt.png' %}" class="avt_cm"><b>{{comment.author}}</b>
             <p>{{comment.body|linebreaks}}</p>
+            <p class="date-cm">{{comment.date}}</p>
         {% endfor %}
         
         {% if user.username %}
@@ -38,9 +38,11 @@
                 <p><label>Bình luận: </label></p>
                 {{form.body}}
                 <br/>
-                <input type="submit" value="Bình luận"/>
+                <div class="bl"><input type="submit" value="Bình luận"/></div>
             </form>
         {% endif %}
+
+        <br/>
     </div>
 </div>
 {% endblock %}

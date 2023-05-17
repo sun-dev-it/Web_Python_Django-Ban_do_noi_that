@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<br/>
+<div class="row"> 
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1 icon_back"><a href="{% url 'giohang' %}"> <img src="{% static 'images/back.png' %}" class="back"></a></div>
+    <div class="khung-ct-pf-mua col-sm-3">
+        <p>Thông tin mua hàng:</p>
+        <hr>
+        <div class="form-field">
+            <input class="form-control" type="text" name="Địa chỉ" placeholder="Địa chỉ..">
+        </div>
+        <br/>
+        <div class="form-field">
+            <input class="form-control" type="text" name="Số điện thoại" placeholder=" Số điện thoại..">
+        </div>
+        <br/>
+        <div class="kmuahang"><input id="form-button" class="btn muahang btn-block" type="submit" value="Mua"></div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="khung-ct-pf-mua col-sm-5">
+        <div class="box-element">
+            <p>Hàng mua</p>
+            <hr>
+            <p>{{order.get_items}}</p>
+            <p>{{order.get_money}}</p>
+
+            {% for item in items %}
+            <p>{{item.soluong}}</p>
+            <p>{{item.sp.TenSP}}</p>
+            <p>{{item.sp.GiaSP}}</p>
+            <p>{{item.sp.DanhGia}}</p>
+            <p>{{item.sp.LuotMua}}</p>
+            <img src="{{item.sp.imageurl}}" style="width:100px; height: 50px">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
