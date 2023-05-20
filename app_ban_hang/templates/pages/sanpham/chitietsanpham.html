@@ -4,25 +4,41 @@
 
 {% load static %}
 
+{% block linkweb %} <i><u><a href="/" class="link-webs">Sản phẩm</a></u> > <u class="link-webs">chi tiết sản phẩm</u></i> {% endblock linkweb %}
+
 {% block content %}
 <div class="row">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-2 menu">
-        <i><a href="{% url 'sanpham' %}" class="link-webs"><u>Sản phẩm</u></a>><u class="link-webs">chi tiết sản phẩm</u></i>
-    </div>
+    <div class="col-sm-3"></div>
     <div class="col-sm-1 icon_back"><a href="{% url 'sanpham' %}"> <img src="{% static 'images/back.png' %}" class="back"></a></div>
     <div class="col-sm-4 pd_ct">
         <img src="{{sanpham.image.url}}" class="col-sm-12"/>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class="ten_spct">{{sanpham.TenSP}}</div>
             </div>
-            <div class="col-sm-5 gio_hang_ct">
-                <button><img src="{% static 'images/giohang_chitiet.png' %}" data-user={{user}} data-sanpham={{sanpham.id}} data-action ="add" class="gio_hang_chitiet update_giohang"></button>
-            </div>
-            <div class="col-sm-6 gia_ct">{{sanpham.GiaSP}}<sup>đ</sup></div>
-            <div class="col-sm-6 al-right">Đánh giá: {{sanpham.DanhGia}} | Đã bán: {{sanpham.LuotMua}}</div>
 
+            <div class="col-sm-4 al-right dg_lm">Đánh giá: {{sanpham.DanhGia}} | Đã bán: {{sanpham.LuotMua}}</div>
+
+            <div class="col-sm-6 gia_ct">{{sanpham.GiaSP}}<sup>đ</sup></div>
+
+            <div class="col-sm-2">
+            </div>
+
+            <div class="col-sm-4 gio_hang_ct">
+                <button data-user={{user}} data-sanpham={{sanpham.id}} data-action ="add" class="gio_hang_chitiet update_giohang">
+                    Thêm vào giỏ hàng
+                    <img src="{% static 'images/giohang_chitiet.png' %}" style="width: 30px">
+                </button>
+            </div>
+
+            <hr>
+
+            <div>
+                <h5>Mô tả sản phẩm:</h5>
+                {{sanpham.GiaSP}}
+            </div>
+
+            <br/><br/>
             <hr>
         </div>
 

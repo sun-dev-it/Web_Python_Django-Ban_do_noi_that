@@ -5,3 +5,10 @@ html, body{
 .bd{
     min-height: 95%;
 }
+
+@media only screen and (max-width: 1200px){
+    .left, .right{
+        float: none;
+        width: 100%;
+    }
+}

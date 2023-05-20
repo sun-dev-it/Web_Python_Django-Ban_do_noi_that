@@ -1,19 +1,39 @@
 {% extends "pages/profile/profile.html" %}
 
-{% block hoso %}
+{% load static %}
 
+{%block title %} Giỏ hàng {% endblock %}
+
+{% block linkweb %} <a href="/" class="link-webs"><i><u>Giỏ hàng</u></i></a>> {% endblock linkweb %}
+
+{% block hoso %}
+<br/>
 <div class="khung-ct-pf"> 
     <h4>Giỏ hàng</h4>
+    <hr/>
     <table>
-      <tr class="khung-pf">
-        <th></th>
-        <th class="al-right"></th>
-      </tr>
       <tr>
-        <th class="khung-pf"></th>
+        <th>Tên sản phẩm</th>
+        <th>Ảnh</th>
+        <th>Số lượng</th>
+        <th>Giá</th>
       </tr>
+      {% for item in items %}
+        <tr>
+          <th>{{item.sp.TenSP}}</th>
+          <th><img src="{{item.sp.imageurl}}" style="width:100px; height: 50px"></th>
+          <th>
+            <img src="{% static 'images/-.png' %}" data-sanpham={{item.sp.id}} data-action = 'remove' class="update_giohang change_sl" style="width: 16px">
+            {{item.soluong}}
+            <img src="{% static 'images/+.png' %}" data-sanpham={{item.sp.id}} data-action = 'add' class="update_giohang change_sl" style="width: 16px">
+          <th>{{item.sp.GiaSP}}</th>
+        </tr>
+      {% endfor %}
     </table>
-    <div class="kmuahang"><a href="{% url 'muahang' %}" class="muahang">Mua hàng</a></div>
+    <hr>
+    <div class="kmuahang">
+      <b>Tổng tiền sản phẩm: <b>{{order.get_money}}<sup>đ</sup>
+      <a href="{% url 'muahang' %}" class="muahang">Mua hàng</a></div>
 </div>
 
 

@@ -10,7 +10,27 @@ for (i=0; i < updateBtns.length; i++){
         if (user ===  "AnonymousUser"){
             console.log('Người dùng chưa đăng nhập')
         } else {
-            console.log('Người dùng đã đăng nhập')
+            updateUserOrder(sp_id, action)
         }
+    })
+}
+
+function updateUserOrder(sp_id, action){
+    console.log('Người dùng đã đăng nhập')
+    var url = '/update_item/'
+    fetch(url, {
+        method: 'POST',
+        headers:{
+            'Contenr-Tyoe':'application/json',
+            'x-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({'sp_id' :sp_id, 'action' :action})
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        console.log('data', data)
+        location.reload()
     })
 }

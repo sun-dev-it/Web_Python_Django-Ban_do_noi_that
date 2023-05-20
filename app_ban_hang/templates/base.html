@@ -21,6 +21,25 @@
     
 </head>
 <body>
+    <script type="text/javascript">
+        var user ='{{request.user}}'
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     
@@ -54,7 +73,10 @@
                                     <a class="nav-link dx" href="{% url 'logout' %}">Đăng xuất</a>
                                 </ul>
                             </div>
-                            <a href="{% url 'giohang' %}"> <img src="{% static 'images/giohang.png' %}" class="gio_hang_home"></a>
+                            <a href="{% url 'giohang' %}" class="unline_none"> 
+                                <img src="{% static 'images/giohang.png' %}" class="gio_hang_home"> 
+                                <sup class="sl_sp_giohang">{{cartitems}}</sup> 
+                            </a>
 
                         </ul>
 
@@ -94,16 +116,11 @@
                     </li>
 
                     <li class="col-sm-3 bg_pages_web">
-                        <a class="nav-link pages_web" href="{% url 'sanpham' %}">Sản phẩm <i class="mui_ten down"></i></a>
+                        <a class="nav-link pages_web" href="">Sản phẩm <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="{% url 'ban' %}">Bàn</a>
-                            <a class="nav-link item-menu" href="{% url 'bobanan' %}">Bộ bàn ăn</a>
-                            <a class="nav-link item-menu" href="{% url 'giuong' %}">Giường</a>
-                            <a class="nav-link item-menu" href="{% url 'ghe' %}">Ghế</a>
-                            <a class="nav-link item-menu" href="{% url 'tuke' %}">Tủ kệ</a>
-                            <a class="nav-link item-menu" href="{% url 'sofa' %}">Sofa</a>
-                            <a class="nav-link item-menu" href="{% url 'dotrangtri' %}">Đồ trang trí</a>
-                            <a class="nav-link item-menu" href="{% url 'dodungnhabep' %}">Đồ dùng nhà bếp</a>
+                            {% for i in categories %}
+                                <a class="nav-link item-menu" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}</a>
+                            {% endfor %}
                         </ul>
                     </li>
 
@@ -133,9 +150,8 @@
 
       
         <div class="container-fluid">
-            {% block content %}
-                        
-            {% endblock %}
+            {% block linkweb %} {% endblock linkweb %}
+            {% block content %} {% endblock %}
         </div>
     </div>
 

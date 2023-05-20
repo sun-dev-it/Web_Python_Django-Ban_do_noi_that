@@ -14,13 +14,53 @@
 }
 
 .gio_hang_chitiet{
-    margin-top: 3px;
-    width:47px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    padding: 4px 0px 4px 5px;
+    background:#ececec;
+    border: 1px solid black;
+}
+
+.gio_hang_chitiet:hover{
+    background:#d1d1d1;
+}
+
+.them_sl_sp:hover{
+    background:#d1d1d1;
+}
+
+.soluongsp th{
+    background:#ececec;
+    padding: 1px 9px 3px 9px;
+    border: 1px solid black;
+}
+.soluongsp th:hover{
+    background:#d1d1d1;
 }
 
 .gio_hang_ct{
-    margin-top: 2px;
-    text-align: right;
+    text-align: center;
+}
+
+.kmuangay{
+    margin-top: 14px;
+    text-align: center;
+}
+
+.muangay{
+    color:black;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 3px;
+    background:#ececec;
+    border: 1px solid black;
+}
+
+.muangay:hover{
+    color:black;
+    background:#d1d1d1;
+
 }
 
 
@@ -92,4 +132,17 @@
 }
 .back{
     width: 35px;
+}
+
+.change_sl{
+    margin: 0px 5px 1px 5px;
+}
+
+
+.unline_none{
+    text-decoration: none;
+    margin-left: 30px;
+}
+.sl_sp_giohang{
+    color:#fff;
 }
