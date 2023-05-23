@@ -1,56 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import *
 from .models import *
-from django.http import HttpResponseRedirect, JsonResponse
-import json
+from .function import *
+from django.http import HttpResponseRedirect
 
 # Create your views here.
-
-## Các danh mục sản phẩm
-def MenuSP_categories(request):
-    categories = Category.objects.filter(is_sub = False)
-    return categories
-def MenuSP_active_category(request):
-    active_category = request.GET.get('category', '')
-    return active_category
-
-## Tổng món hàng có trong giỏ hàng
-def TongSPTrongGio(request):
-    if request.user.is_authenticated:
-        customer = request.user
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        cartitems = order.get_items
-    else:
-        order={'order.get_items': 0, 'order.get_money':0}
-        cartitems = order['order.get_items']
-    return cartitems
-
-## Danh sách sản phẩm đã thêm vào giỏ hàng
-def SanPhamTrongGio(request):
-    if request.user.is_authenticated:
-        customer = request.user
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    else:
-        items=[]
-        order={'order.get_items': 0, 'order.get_money':0}
-    return  items
-
-## Tổng tiền sản phẩm trong giỏ hàng
-def TongTienSPTrongGio(request):
-    if request.user.is_authenticated:
-        customer = request.user
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    else:
-        order={'order.get_items': 0, 'order.get_money':0}
-        return order
-
-###################################################################################################
 # sản phẩm
 def listsanpham(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, "pages/sanpham/sanpham.html", data)
@@ -67,8 +26,8 @@ def sanpham(request, pk):
     data = {
         'sanpham': sanpham, 
         'form': form,
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request),
         'name': SanPham(request).category
     }
@@ -85,18 +44,18 @@ def category(request):
     data = {
         'sanphams': sanphams, 
         'active_category': active_category,
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': active_category,
-        'LoaiSP': Category(request)
+        'LoaiSP': LoaiSP(request)
     }
     return render(request, 'pages/sanpham/category.html', data)
 
 # Home
 def home(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/home.html', data)
@@ -104,8 +63,8 @@ def home(request):
 # Hồ sơ
 def hoso(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/profile/hoso.html', data)
@@ -113,10 +72,10 @@ def hoso(request):
 # Giỏ hàng
 def giohang(request):
     data = {
-        'items':SanPhamTrongGio(request), 
-        'get_money':TongTienSPTrongGio(request),
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongTienSPTrongGio':TongTienSPTrongGio(request),
+        'SanPhamTrongGio':SanPhamTrongGio(request), 
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/profile/giohang.html', data)
@@ -124,10 +83,10 @@ def giohang(request):
 # mua hàng
 def muahang(request):
     data = {
-        'items':SanPhamTrongGio(request), 
-        'get_money':TongTienSPTrongGio(request),
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'SanPhamTrongGio':SanPhamTrongGio(request), 
+        'TongTienSPTrongGio':TongTienSPTrongGio(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, "pages/profile/muahang.html", data)
@@ -136,8 +95,8 @@ def muahang(request):
 # Đơn hàng
 def donhang(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/profile/donhang.html', data)
@@ -145,8 +104,8 @@ def donhang(request):
 # Trang cá nhân
 def profile(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/profile/profile.html', data)
@@ -166,25 +125,6 @@ def register(request):
     }
     return render(request, 'register.html', data)
 
-# Thêm số lượng sản phẩm
-def updateitem(request):
-    data = json.loads(request.body)
-    sp_id = data['sp_id']
-    action = data['action']
-    customer = request.user
-    sp = SanPham.objects.get(id = sp_id)
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    orderitem, created = OrderItem.objects.get_or_create(order=order, sp=sp)
-    if action == 'add':
-        orderitem.soluong +=1
-    elif action == 'remove':
-        orderitem.soluong -=1
-    orderitem.save()
-    if orderitem.soluong <=0:
-        orderitem.delete()
-    return JsonResponse('added', safe=False)
-
-
 # Thanh tìm kiếm
 def search(request):
     if request.method == 'POST':
@@ -193,8 +133,8 @@ def search(request):
     data = {
         "searched": search, 
         "keys": keys,
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/search.html', data)
@@ -203,8 +143,8 @@ def search(request):
 # Tư vấn nội thất
 def tuvannoithat(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/tuvannoithat.html', data)
@@ -212,8 +152,8 @@ def tuvannoithat(request):
 # Blog
 def blog(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/blog/blog.html', data)
@@ -221,8 +161,8 @@ def blog(request):
 # Liên hệ
 def lienhe(request):
     data = {
-        'cartitems':TongSPTrongGio(request),
-        'categories':MenuSP_categories(request),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/lienhe.html', data)

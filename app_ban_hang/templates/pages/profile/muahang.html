@@ -22,7 +22,7 @@
                 <th>Số lượng</th>
                 <th>Giá</th>
               </tr>
-              {% for item in items %}
+              {% for item in SanPhamTrongGio %}
               <tr>
                 <th>
                     {{item.sp.TenSP}}
@@ -49,7 +49,7 @@
             <br/>
             
             <div class="kmuahang">
-                <b>Tổng tiền sản phẩm: <b> {{order.get_money}}<sup>đ</sup>
+                <b>Tổng tiền sản phẩm: <b> {{TongTienSPTrongGio.get_money}}<sup>đ</sup>
                 <input id="form-button" class="btn muahang btn-block" type="submit" value="Xác nhận">
             </div>
     </div>

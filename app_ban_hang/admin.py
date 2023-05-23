@@ -12,8 +12,8 @@ class SanPhamAdmin(admin.ModelAdmin):
     inlines = [CommentInline]
 admin.site.register(SanPham)
 
-admin.site.register(Category)
-admin.site.register(Order)
+admin.site.register(LoaiSP)
+admin.site.register(DonHang)
 admin.site.register(OrderItem)
 admin.site.register(ThongTinNguoiMua)
 

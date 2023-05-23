@@ -75,7 +75,7 @@
                             </div>
                             <a href="{% url 'giohang' %}" class="unline_none"> 
                                 <img src="{% static 'images/giohang.png' %}" class="gio_hang_home"> 
-                                <sup class="sl_sp_giohang">{{cartitems}}</sup> 
+                                <sup class="sl_sp_giohang">{{TongSPTrongGio}}</sup> 
                             </a>
 
                         </ul>
@@ -118,7 +118,7 @@
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="">Sản phẩm <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            {% for i in categories %}
+                            {% for i in DanhMucSP %}
                                 <a class="nav-link item-menu" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}</a>
                             {% endfor %}
                         </ul>

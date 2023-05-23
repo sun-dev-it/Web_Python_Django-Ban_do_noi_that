@@ -5,7 +5,7 @@ from django.conf import settings
 # Create your models here.
 
 # Loại sản phẩm
-class Category(models.Model):
+class LoaiSP(models.Model):
     sub_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='sub_categories', null=True, blank=True)
     is_sub = models.BooleanField(default=False)
     name = models.CharField(max_length=200, null=True)
@@ -15,7 +15,7 @@ class Category(models.Model):
 
 # Sản phẩm
 class SanPham(models.Model):
-    category = models.ManyToManyField(Category, related_name='sanpham')
+    category = models.ManyToManyField(LoaiSP, related_name='sanpham')
     TenSP = models.CharField(max_length=30)
     GiaSP = models.IntegerField()
     LoaiSP = models.IntegerField()
@@ -45,7 +45,7 @@ class Comment(models.Model):
 
 
 
-class Order(models.Model):
+class DonHang(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
     date_order = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False, null=True, blank = False)
@@ -68,7 +68,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     sp = models.ForeignKey(SanPham, on_delete=models.SET_NULL, blank = True,  null = True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank = True, null = True)
+    order = models.ForeignKey(DonHang, on_delete=models.SET_NULL, blank = True, null = True)
     soluong = models.IntegerField(default=0, null = True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -79,7 +79,7 @@ class OrderItem(models.Model):
 
 class ThongTinNguoiMua(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null = True, blank = True)
+    order = models.ForeignKey(DonHang, on_delete=models.SET_NULL, null = True, blank = True)
     DiaChi= models.CharField(max_length=200, null= True)
     SDT= models.CharField(max_length=11, null= True)
     date_added = models.DateTimeField(auto_now_add=True)
