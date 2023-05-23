@@ -1,0 +1,160 @@
+.logo_web{
+    width:70%;
+}
+
+.gio_hang{
+    margin: 5px 3px 0 0;
+    width:38px;
+}
+
+.gio_hang_home{
+    margin: 0 0 3px 0px;
+    width:27px;
+    height: 24px
+}
+
+.gio_hang_chitiet{
+    margin-bottom: 8px;
+    font-size: 15px;
+    padding: 4px 0px 4px 5px;
+    background:#ececec;
+    border: 1px solid black;
+}
+
+.gio_hang_chitiet:hover{
+    background:#d1d1d1;
+}
+
+.them_sl_sp:hover{
+    background:#d1d1d1;
+}
+
+.soluongsp th{
+    background:#ececec;
+    padding: 1px 9px 3px 9px;
+    border: 1px solid black;
+}
+.soluongsp th:hover{
+    background:#d1d1d1;
+}
+
+.gio_hang_ct{
+    text-align: center;
+}
+
+.kmuangay{
+    margin-top: 14px;
+    text-align: center;
+}
+
+.muangay{
+    color:black;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 3px;
+    background:#ececec;
+    border: 1px solid black;
+}
+
+.muangay:hover{
+    color:black;
+    background:#d1d1d1;
+
+}
+
+
+.avt{
+    padding:3px;
+    background:rgb(255, 255, 255);
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    margin-right:10px;
+}
+
+.avt_cm{
+    margin-bottom: 3px;
+    padding:3px;
+    background:rgb(255, 255, 255);
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    margin-right:10px;
+}
+
+.xe{
+    width:33px;
+    margin-bottom: 5px;
+}
+
+.dongho{
+    width:23px;
+    padding: 4px 0 4px 0;
+    background:rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.hotline{
+    width:22px;
+    padding:2px;
+    background:rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.kinhlup{
+    width:28px;
+}
+
+.btn-outline-success-cf {
+    --bs-btn-color: #ffffff;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #575757;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-focus-shadow-rgb: 25,135,84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #575757;
+    --bs-btn-active-border-color: #575757;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #575757;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #575757;
+    --bs-gradient: none;
+}
+
+
+.icon_back{
+    margin-top: 25px;
+    text-align: center;
+}
+.back{
+    width: 35px;
+}
+
+.change_sl1{
+    width: 18px;
+    margin: 0px 5px 1px 5px;
+    padding:8px 4px;
+    background:#d1d1d1;
+}
+.change_sl2{
+    width: 18px;
+    margin: 0px 5px 1px 5px;
+    padding: 4px;
+    background:#d1d1d1;
+}
+.change_sl1:hover, .change_sl2:hover{
+    background:#9e9e9e;
+}
+
+
+.unline_none{
+    text-decoration: none;
+    margin-left: 30px;
+}
+.sl_sp_giohang{
+    color:#fff;
+}

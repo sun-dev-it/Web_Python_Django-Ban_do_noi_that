@@ -23,9 +23,9 @@
           <th>{{item.sp.TenSP}}</th>
           <th><img src="{{item.sp.imageurl}}" style="width:100px; height: 50px"></th>
           <th>
-            <img src="{% static 'images/-.png' %}" data-sanpham={{item.sp.id}} data-action = 'remove' class="update_giohang change_sl" style="width: 16px">
+            <img src="{% static 'images/-.png' %}" data-sanpham={{item.sp.id}} data-action = 'remove' class="update_giohang change_sl1">
             {{item.soluong}}
-            <img src="{% static 'images/+.png' %}" data-sanpham={{item.sp.id}} data-action = 'add' class="update_giohang change_sl" style="width: 16px">
+            <img src="{% static 'images/+.png' %}" data-sanpham={{item.sp.id}} data-action = 'add' class="update_giohang change_sl2">
           <th>{{item.sp.GiaSP}}</th>
         </tr>
       {% endfor %}

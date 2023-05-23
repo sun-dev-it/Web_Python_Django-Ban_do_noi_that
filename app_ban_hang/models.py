@@ -18,7 +18,6 @@ class SanPham(models.Model):
     category = models.ManyToManyField(LoaiSP, related_name='sanpham')
     TenSP = models.CharField(max_length=30)
     GiaSP = models.IntegerField()
-    LoaiSP = models.IntegerField()
     image = models.ImageField(null=True, blank=True)
     image1 = models.ImageField(null=True, blank=True)
     image2 = models.ImageField(null=True, blank=True)

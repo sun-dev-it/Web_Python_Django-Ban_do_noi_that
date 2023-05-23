@@ -79,8 +79,11 @@ WSGI_APPLICATION = 'web_ban_hang.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'web-ban-hang',
+        'USER':'root',
+        'PASSWORD':'010902',
+        'HOST':'localhost'
     }
 }
 
