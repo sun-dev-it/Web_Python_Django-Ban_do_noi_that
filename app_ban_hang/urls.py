@@ -16,9 +16,10 @@ urlpatterns = [
     path('search', views.search, name='search'),
     path('category', views.category, name='category'),
 
-
     path('sanpham', views.listsanpham, name='sanpham'),
     path('<int:pk>/', views.sanpham, name='sanpham'),
+
+    path('listsp', views.listsp, name='listsp'),
 
     #############################################################################################
     path('tuvannoithat', views.tuvannoithat, name='tuvannoithat'),   

@@ -23,6 +23,7 @@ def TongSPTrongGio(request):
         cartitems = order['get_items']
     return cartitems
 
+
 ## Danh sách sản phẩm đã thêm vào giỏ hàng
 def SanPhamTrongGio(request):
     if request.user.is_authenticated:
@@ -62,3 +63,8 @@ def updateitem(request):
     if orderitem.soluong <=0:
         orderitem.delete()
     return JsonResponse('added', safe=False)
+
+
+def BlogItems(request):
+    data = Blog.objects.all()
+    return data

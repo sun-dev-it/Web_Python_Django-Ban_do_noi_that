@@ -8,19 +8,22 @@
 
 <div class="row">
     <div class="col-sm-1"></div>
-    <div class="col-sm-2 menu"></div>
+    <div class="col-sm-2 menu">
+        <div class="border_right menu-nav">
+            {% for i in DanhMucSP %}
+            <a class="nasv-link item-menu" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}<i class="mui_ten right"></i></a>
+            {% endfor %}
+        </div>
+    </div>
     <div class="col-sm-6 content-web">
-            
+    <h3>Kết quả cho tìm kiếm: {{searched}}</h3>
         <div class="row">           
             {% for sanpham in keys %}
                 <div class="col-sm-4 item-sp">
                     <a href="{{sanpham.id}}" class="image_sp"><div><img src="{{sanpham.image.url}}"/></div></a>          
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-12">
                             <a href="{{sanpham.id}}" class="ten_sp">{{sanpham.TenSP}}</a>
-                        </div>
-                        <div class="col-sm-3 al-right">
-                            <img src="{% static 'images/giohang.png' %}" class="gio_hang">
                         </div>
                     </div>
                     <div class="row">

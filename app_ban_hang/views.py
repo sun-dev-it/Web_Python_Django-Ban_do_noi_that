@@ -8,11 +8,22 @@ from django.http import HttpResponseRedirect
 # sản phẩm
 def listsanpham(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, "pages/sanpham/sanpham.html", data)
+
+def listsp(request):
+    data = {
+        'Blog':BlogItems(request),
+        'listsp': SanPham.objects.all(),
+        'TongSPTrongGio':TongSPTrongGio(request),
+        'DanhMucSP':MenuSP_categories(request),
+        'active_category': MenuSP_active_category(request)
+    }
+    return render(request, "pages/sanpham/listsp.html", data)
 
 # chi tiết sản phẩm
 def sanpham(request, pk):
@@ -24,6 +35,7 @@ def sanpham(request, pk):
             form.save()
             return HttpResponseRedirect(request.path)
     data = {
+        'Blog':BlogItems(request),
         'sanpham': sanpham, 
         'form': form,
         'TongSPTrongGio':TongSPTrongGio(request),
@@ -42,6 +54,7 @@ def category(request):
         sanphams = SanPham.objects.filter(category__slug = active_category)
 
     data = {
+        'Blog':BlogItems(request),
         'sanphams': sanphams, 
         'active_category': active_category,
         'TongSPTrongGio':TongSPTrongGio(request),
@@ -54,6 +67,7 @@ def category(request):
 # Home
 def home(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -63,6 +77,7 @@ def home(request):
 # Hồ sơ
 def hoso(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -72,6 +87,7 @@ def hoso(request):
 # Giỏ hàng
 def giohang(request):
     data = {
+        'Blog':BlogItems(request),
         'TongTienSPTrongGio':TongTienSPTrongGio(request),
         'SanPhamTrongGio':SanPhamTrongGio(request), 
         'TongSPTrongGio':TongSPTrongGio(request),
@@ -83,6 +99,7 @@ def giohang(request):
 # mua hàng
 def muahang(request):
     data = {
+        'Blog':BlogItems(request),
         'SanPhamTrongGio':SanPhamTrongGio(request), 
         'TongTienSPTrongGio':TongTienSPTrongGio(request),
         'TongSPTrongGio':TongSPTrongGio(request),
@@ -95,6 +112,7 @@ def muahang(request):
 # Đơn hàng
 def donhang(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -104,6 +122,7 @@ def donhang(request):
 # Trang cá nhân
 def profile(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -127,22 +146,24 @@ def register(request):
 
 # Thanh tìm kiếm
 def search(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         searched = request.POST ["searched"]
         keys = SanPham.objects.filter(TenSP__contains = searched)
     data = {
-        "searched": search, 
+        'Blog':BlogItems(request),
+        "searched": searched, 
         "keys": keys,
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
-    return render(request, 'pages/search.html', data)
+    return render(request, 'pages/sanpham/search.html', data)
 
 #####################################################################################################################################
 # Tư vấn nội thất
 def tuvannoithat(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -152,6 +173,7 @@ def tuvannoithat(request):
 # Blog
 def blog(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -161,6 +183,7 @@ def blog(request):
 # Liên hệ
 def lienhe(request):
     data = {
+        'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)

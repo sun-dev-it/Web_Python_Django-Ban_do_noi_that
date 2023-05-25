@@ -8,10 +8,17 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-1 icon_back"><a href="{% url 'sanpham' %}"> <img src="{% static 'images/back.png' %}" class="back"></a></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2 menu">
+        <div class="border_right menu-nav">
+            {% for i in DanhMucSP %}
+            <a class="nav-link item-menu" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}<i class="mui_ten right"></i></a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-sm-1 icon_back"><a href="{% url 'listsp' %}"> <img src="{% static 'images/back.png' %}" class="back"></a></div>
     <div class="col-sm-4 pd_ct">
-        <img src="{{sanpham.image.url}}" class="col-sm-12"/>
+        <img src="{{sanpham.imageurl}}" class="col-sm-12"/>
         <div class="row">
             <div class="col-sm-8">
                 <div class="ten_spct">{{sanpham.TenSP}}</div>
@@ -30,18 +37,16 @@
                     <img src="{% static 'images/giohang_chitiet.png' %}" style="width: 30px">
                 </button>
             </div>
-
             <hr>
 
             <div>
                 <h5>Mô tả sản phẩm:</h5>
-                {{sanpham.GiaSP}}
+                {{sanpham.MoTa|linebreaks}}
             </div>
 
             <br/><br/>
             <hr>
         </div>
-
         {% for comment in sanpham.comments.all %}
             <img src="{% static 'images/avt.png' %}" class="avt_cm"><b>{{comment.author}}</b>
             <p>{{comment.body|linebreaks}}</p>
@@ -59,6 +64,10 @@
         {% endif %}
 
         <br/>
+    </div>
+    <div class="col-sm-2">
+        <p><img src="{{sanpham.imageurl1}}" class="col-sm-12" /></p>
+        <p><img src="{{sanpham.imageurl2}}" class="col-sm-12" /></p>
     </div>
 </div>
 {% endblock %}

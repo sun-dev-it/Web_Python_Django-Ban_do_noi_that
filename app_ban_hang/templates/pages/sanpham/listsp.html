@@ -1,0 +1,35 @@
+{% extends "pages/sanpham/sanpham.html" %}
+
+{%block title %} Sản phẩm {% endblock %}
+
+{% load static %}
+
+{% block linkweb %} <a href="/" class="link-webs"><i><u>Sản phẩm</u></i></a>> {% endblock linkweb %}
+
+
+{% block listsp %} 
+<div class="row">
+    {% for sanpham in listsp %}
+        <div class="col-sm-4 item-sp">
+            <a href="{{sanpham.id}}" class="image_sp"><div><img src="{{sanpham.image.url}}"/></div></a>          
+            <div class="row">
+                <div class="col-sm-9">
+                    <a href="{{sanpham.id}}" class="ten_sp">{{sanpham.TenSP}}</a>
+                </div>
+                <div class="col-sm-3 ban-danh_gia al-right">
+                    Đã bán: {{sanpham.LuotMua}} 
+                    <br> 
+                    Đánh giá: {{sanpham.DanhGia}}
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-8 Gia">
+                    {{sanpham.GiaSP}}<sup>đ</sup>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

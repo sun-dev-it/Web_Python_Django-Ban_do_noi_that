@@ -1,0 +1,25 @@
+.k_img_blog{
+    margin-bottom:20px;
+    text-align: center;
+    border-radius: 9px;
+}
+
+.k_thongtin_blog{
+    text-align: right;
+}
+
+.pd_blog{
+    padding-top: 15px;
+}
+
+.border_right_blog{
+    padding: 1px 10px 1px 10px;
+    border: 1px solid rgb(153, 153, 153);
+}
+
+.menu_blog{
+    font-size: 20px;
+    font-family:verdana;
+    margin: 8px 15px 8px 15px;
+    border-bottom: 2px solid black;
+}

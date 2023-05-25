@@ -69,7 +69,7 @@
                             <div class="pf-dk">
                                 <a class="dn-dk" href="{% url 'hoso' %}"><img src="{% static 'images/avt.png' %}" class="avt"> {{user.username}}</a> 
                                 <ul class="hover_dx">
-                                    <a class="nav-link dx" href="{% url 'profile' %}">Trang cá nhân</a>
+                                    <a class="nav-link dx" href="{% url 'hoso' %}">Trang cá nhân</a>
                                     <a class="nav-link dx" href="{% url 'logout' %}">Đăng xuất</a>
                                 </ul>
                             </div>
@@ -116,7 +116,7 @@
                     </li>
 
                     <li class="col-sm-3 bg_pages_web">
-                        <a class="nav-link pages_web" href="">Sản phẩm <i class="mui_ten down"></i></a>
+                        <a class="nav-link pages_web" href="{% url 'listsp' %}">Sản phẩm <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
                             {% for i in DanhMucSP %}
                                 <a class="nav-link item-menu" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}</a>
@@ -134,7 +134,9 @@
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="#">Góc cảm hứng</a>
+                            {% for i in Blog %}
+                                <a class="nav-link item-menu" href="#"> {{i.TieuDe}} </a>
+                            {% endfor %}
                         </ul>
                     </li>
 
@@ -147,7 +149,6 @@
                 </ul>
             </div>
         </div>
-
       
         <div class="container-fluid">
             {% block linkweb %} {% endblock linkweb %}

@@ -11,7 +11,7 @@ class SanPhamAdmin(admin.ModelAdmin):
     search_fields = ['TenSP']
     inlines = [CommentInline]
 admin.site.register(SanPham)
-
+admin.site.register(Blog)
 admin.site.register(LoaiSP)
 admin.site.register(DonHang)
 admin.site.register(OrderItem)

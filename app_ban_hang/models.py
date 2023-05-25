@@ -33,6 +33,18 @@ class SanPham(models.Model):
         except:
             url = ''
         return url
+    def imageurl1(self):
+        try:
+            url = self.image1.url
+        except:
+            url = ''
+        return url
+    def imageurl2(self):
+        try:
+            url = self.image2.url
+        except:
+            url = ''
+        return url
 
 
 # Comment
@@ -43,7 +55,7 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
 
-
+# Đơn hàng
 class DonHang(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
     date_order = models.DateTimeField(auto_now_add=True)
@@ -75,6 +87,16 @@ class OrderItem(models.Model):
     def get_total(self):
         total = self.sp.GiaSP * self.soluong
         return total
+
+
+class Blog(models.Model):
+    image = models.ImageField(null=True, blank=True)
+    TieuDe = models.CharField(max_length=200)
+    NoiDung = models.TextField()
+    LuotLike = models.IntegerField(default=0, null = True, blank=True)
+    SoCmt = models.IntegerField(default=0, null = True, blank=True)
+    NgayDang = models.DateTimeField(auto_now_add=True)
+
 
 class ThongTinNguoiMua(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)

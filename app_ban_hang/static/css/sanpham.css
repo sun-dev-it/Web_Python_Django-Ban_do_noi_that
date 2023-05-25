@@ -47,7 +47,12 @@
 /* Chi tiết sản phẩm */
 
 .pd_ct{
+    padding: 10px;
     padding-top: 60px;
+}
+
+.bd_right{
+    border: black;
 }
 
 .thongtin_sp{
@@ -73,6 +78,7 @@
 }
 
 .title_Loai_sp{
+    padding-left: 15px;
     color:rgb(255, 255, 255);
     background: #222222;
     font-family: verdana;
