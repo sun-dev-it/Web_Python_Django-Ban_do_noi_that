@@ -14,15 +14,19 @@ urlpatterns = [
     path('muahang/', views.muahang, name='muahang'),
     path('update_item/', views.updateitem, name='update_item'),
     path('search', views.search, name='search'),
-    path('category', views.category, name='category'),
+    path('sanpham/', views.category, name='category'),
 
-    path('sanpham', views.listsanpham, name='sanpham'),
-    path('<int:pk>/', views.sanpham, name='sanpham'),
+    path('sanpham/', views.listsanpham, name='sanpham'),
+    path('sanpham/<int:pk>/', views.sanpham, name='sanpham'),
 
-    path('listsp', views.listsp, name='listsp'),
+    path('sanpham', views.listsp, name='listsp'),
 
     #############################################################################################
-    path('tuvannoithat', views.tuvannoithat, name='tuvannoithat'),   
-    path('blog', views.blog, name='blog'),
-    path('lienhe', views.lienhe, name='lienhe'),
+    path('tuvannoithat/', views.tuvannoithat, name='tuvannoithat'),   
+
+
+    path('blog/', views.blog, name='blog'),
+    path('blog/<int:pk>/', views.blog_items, name='blog'),
+
+    path('lienhe/', views.lienhe, name='lienhe'),
 ]

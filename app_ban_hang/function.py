@@ -66,5 +66,9 @@ def updateitem(request):
 
 
 def BlogItems(request):
-    data = Blog.objects.all()
+    data = Blog.objects.all().order_by('-id')
+    return data
+
+def Top5Blog(request):
+    data = Blog.objects.all().order_by('-id')[:5]
     return data

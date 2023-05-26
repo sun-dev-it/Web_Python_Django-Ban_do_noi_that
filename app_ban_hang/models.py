@@ -97,6 +97,13 @@ class Blog(models.Model):
     SoCmt = models.IntegerField(default=0, null = True, blank=True)
     NgayDang = models.DateTimeField(auto_now_add=True)
 
+    def imageurl(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
+
 
 class ThongTinNguoiMua(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)

@@ -6,15 +6,14 @@
 
 {% block linkweb %} <a href="/" class="link-webs"><i><u>Sản phẩm</u></i></a>> {% endblock linkweb %}
 
-
 {% block listsp %} 
 <div class="row">
     {% for sanpham in listsp %}
         <div class="col-sm-4 item-sp">
-            <a href="{{sanpham.id}}" class="image_sp"><div><img src="{{sanpham.image.url}}"/></div></a>          
+            <a href="sanpham/{{sanpham.id}}" class="image_sp"><div><img src="{{sanpham.imageurl}}"/></div></a>          
             <div class="row">
                 <div class="col-sm-9">
-                    <a href="{{sanpham.id}}" class="ten_sp">{{sanpham.TenSP}}</a>
+                    <a href="sanpham/{{sanpham.id}}" class="ten_sp">{{sanpham.TenSP}}</a>
                 </div>
                 <div class="col-sm-3 ban-danh_gia al-right">
                     Đã bán: {{sanpham.LuotMua}} 

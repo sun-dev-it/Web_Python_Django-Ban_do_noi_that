@@ -23,3 +23,10 @@
     margin: 8px 15px 8px 15px;
     border-bottom: 2px solid black;
 }
+
+.tieude_blog{
+    font-weight: bold;
+    font-size: 25px;
+    font-family:verdana;
+    margin:5px;
+}

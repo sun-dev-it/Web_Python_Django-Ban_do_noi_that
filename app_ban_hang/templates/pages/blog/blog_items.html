@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{%block title %} Góc cảm hứng {% endblock %}
+
+{% load static %}
+
+{% block linkweb %} <a href="/" class="link-webs"><i><u>Góc cảm hứng</u></i></a>> {% endblock linkweb %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-1 menu">
+    <div class="col-sm-1 icon_back"><a href="{% url 'blog' %}"> <img src="{% static 'images/back.png' %}" class="back"></a></div>
+  </div>
+  <div class="col-sm-6 content-web">
+    ok
+  </div>
+</div>
+{% endblock %}

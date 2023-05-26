@@ -12,13 +12,13 @@
   <div class="col-sm-2 menu">
     <div class="menu-nav border_right_blog pd_blog">
       <div class="menu_blog">BÀI VIẾT MỚI NHẤT</div>
-      {% for i in Blog %}
+      {% for blog in Blog %}
       <div class="row">
         <div class="col-sm-5">
-          <img src="{{i.image.url}}" class="k_img_blog col-sm-12"/>
+          <img src="{{blog.imageurl}}" class="k_img_blog col-sm-12"/>
         </div>
         <div class="col-sm-7">
-          <a class="nav-link item-menu" href="#"> {{i.TieuDe}} <i class="mui_ten right"></i></a>
+          <a class="nav-link item-menu" href="{{blog.id}}"> {{blog.TieuDe}} <i class="mui_ten right"></i></a>
         </div>
       </div>
         {% endfor %}
@@ -26,14 +26,14 @@
   </div>
   <div class="col-sm-6 content-web">
     
-    {% for i in Blog %}
+    {% for blog in Blog %}
       <div class="k_img_blog">
-        <img src="{{i.image.url}}" class="col-sm-7"/>
-        <h3>{{i.TieuDe}}</h3>
+        <img src="{{blog.imageurl}}" class="col-sm-7"/>
+        <a class="nav-link tieude_blog" href="{{blog.id}}"> {{blog.TieuDe}}</a>
       </div>
       <div class="k_thongtin_blog">
-        <span class="col-sm-3">{{i.NgayDang}}</span>
-        <span>{{i.LuotLike}}</span>
+        <span class="col-sm-3">{{blog.NgayDang}}</span>
+        <span>{{blog.LuotLike}}</span>
       </div>
       <hr/>
     {% endfor %}
