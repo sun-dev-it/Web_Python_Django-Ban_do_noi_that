@@ -11,6 +11,7 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-2 menu">
             <div class="border_right menu-nav">
+                <div class="menu_blog">DANH MỤC SẢN PHẨM</div>
                 {% for i in DanhMucSP %}
                 <a class="nav-link item-menu" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}<i class="mui_ten right"></i></a>
                 {% endfor %}

@@ -23,7 +23,7 @@ class SanPham(models.Model):
     image2 = models.ImageField(null=True, blank=True)
     MoTa = models.TextField(null=True, blank=True)
     DanhGia = 5
-    LuotMua = 0
+    LuotMua = models.IntegerField(default=0)
     TonKho = models.IntegerField()
     def __str__(self):
         return self.TenSP
@@ -122,6 +122,9 @@ class Blog(models.Model):
 class LienHe(models.Model):
     NoiDung = models.TextField()
 
+
+### Tư vấn nội thất
+##########################################################################################################################
 class TuVanNoiThat(models.Model):
     NoiDung = models.TextField()
 
@@ -131,7 +134,34 @@ class TuVanNoiThat(models.Model):
 class Base(models.Model):
     SDT = models.CharField(max_length=15, null= True)
     Logo_web = models.ImageField(null=True, blank=True)
-    DiaChiCuaHang = models.CharField(max_length=100, null= True)
-    HoTroKhachHang = models.CharField(max_length=100, null= True)
-    LienHeChungToi = models.CharField(max_length=100, null= True)
-    DiaChi_Khac = models.CharField(max_length=100, null= True)
+    HoTroKhachHang = models.TextField(max_length=500, null= True)
+    LienHeChungToi = models.TextField(max_length=500, null= True)
+    DiaChi_Khac = models.TextField(max_length=500, null= True)
+
+    def Logo_weburl(self):
+        try:
+            url = self.Logo_web.url
+        except:
+            url = ''
+        return url
+
+### Home
+##########################################################################################################################
+class Carousel_Home(models.Model):
+    img = models.ImageField(null=True, blank=True)
+    img_active = models.ImageField(null=True, blank=True)
+
+    def imgurl(self):
+        try:
+            url = self.img.url
+        except:
+            url = ''
+        return url
+    def img_activeurl(self):
+        try:
+            url = self.img_active.url
+        except:
+            url = ''
+        return url
+class Home(models.Model):
+    NoiDung = models.TextField(null= True)

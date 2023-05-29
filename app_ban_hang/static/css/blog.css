@@ -65,3 +65,18 @@
 .date_blog{
     font-size: 12px;
 }
+
+
+.timtrang_chitiet{
+    width: 30px;
+}
+
+.like_blog{
+    font-size: 20px;
+}
+
+.content-web img{
+	transition: all .3s ease;
+}
+
+.content-web img:hover{transform: scale(1.2)}

@@ -1,14 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import *
-from .models import *
-from .function import *
 from django.http import HttpResponseRedirect
+from .function import *
+from .models import *
 
 # Create your views here.
 # sản phẩm
 def listsanpham(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -17,7 +17,8 @@ def listsanpham(request):
 
 def listsp(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'listsp': SanPham.objects.all(),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
@@ -27,17 +28,11 @@ def listsp(request):
 
 # chi tiết sản phẩm
 def sanpham(request, pk):
-    sanpham = get_object_or_404(SanPham, pk=pk)
-    form = CommentForm()
-    if request.method == 'POST':
-        form = CommentForm(request.POST, author=request.user, sanpham=sanpham)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(request.path)
     data = {
-        'Top5Blog':Top5Blog(request),
-        'sanpham': sanpham, 
-        'form': form,
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
+        'sanpham': get_object_or_404(SanPham, pk=pk),
+        'form': Form_Comment_SP(request, pk),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request),
@@ -49,17 +44,13 @@ def sanpham(request, pk):
 
 # Loại sản phẩm
 def category(request):
-    active_category = MenuSP_active_category(request)
-    if active_category:
-        sanphams = SanPham.objects.filter(category__slug = active_category)
-
     data = {
-        'Top5Blog':Top5Blog(request),
-        'sanphams': sanphams, 
-        'active_category': active_category,
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
+        'sanphams': DanhMucSP(request), 
+        'active_category': MenuSP_active_category(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
-        'active_category': active_category,
         'LoaiSP': LoaiSP(request)
     }
     return render(request, 'pages/sanpham/category.html', data)
@@ -67,8 +58,14 @@ def category(request):
 # Home
 def home(request):
     data = {
+        'Home': Home.objects.all(),
+        'Carousel_active': Carousel_Home.objects.all().order_by('-id')[:1],
+        'Carousel': Carousel_Home.objects.all(),
+        'SP_BanChay': SanPham.objects.all().order_by('-LuotMua')[:9],
+        'SP_Moi': SanPham.objects.all().order_by('-id')[:9],
         'Base': Base.objects.all(),
-        'Top5Blog':Top5Blog(request),
+        'TinNoiBat':Blog.objects.all().order_by('-id')[:4],
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -78,7 +75,8 @@ def home(request):
 # Hồ sơ
 def hoso(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -88,7 +86,8 @@ def hoso(request):
 # Giỏ hàng
 def giohang(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongTienSPTrongGio':TongTienSPTrongGio(request),
         'SanPhamTrongGio':SanPhamTrongGio(request), 
         'TongSPTrongGio':TongSPTrongGio(request),
@@ -100,7 +99,8 @@ def giohang(request):
 # mua hàng
 def muahang(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'SanPhamTrongGio':SanPhamTrongGio(request), 
         'TongTienSPTrongGio':TongTienSPTrongGio(request),
         'TongSPTrongGio':TongSPTrongGio(request),
@@ -113,7 +113,8 @@ def muahang(request):
 # Đơn hàng
 def donhang(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -123,38 +124,27 @@ def donhang(request):
 # Trang cá nhân
 def profile(request):
     data = {
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
     return render(request, 'pages/profile/profile.html', data)
 
-# Tạo tài khoản
 
+# Tạo tài khoản
 def register(request):
-    form = RegistrationForm()
-    # Nếu bấm nút đăng kí sẽ đưa dữ liệu vào 
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        # gọi các hàm ở forms.py nếu hợp lệ
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/login')
-    data = {
-        'form': form
-    }
+    data = {'form': Form_DangKi(request)}
     return render(request, 'pages/sign_up-login/register.html', data)
 
 # Thanh tìm kiếm
 def search(request):
-    if request.method == "POST":
-        searched = request.POST ["searched"]
-        keys = SanPham.objects.filter(TenSP__contains = searched)
     data = {
-        'Top5Blog':Top5Blog(request),
-        "searched": searched, 
-        "keys": keys,
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
+        "searched": searched(request), 
+        "keys": keys(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -165,8 +155,9 @@ def search(request):
 # Tư vấn nội thất
 def tuvannoithat(request):
     data = {
+        'Base': Base.objects.all(),
         'TuVanNoiThat':TuVanNoiThat.objects.all(),
-        'Top5Blog':Top5Blog(request),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -178,8 +169,9 @@ def tuvannoithat(request):
 #####################################################################################################################################
 def blog(request):
     data = {
-        'Top5Blog':Top5Blog(request),
-        'Blog':BlogItems(request),
+        'Base': Base.objects.all(),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
+        'Blog':Blog.objects.all().order_by('-id'),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -187,10 +179,10 @@ def blog(request):
     return render(request, 'pages/blog/blog.html', data)
 
 def blog_items(request, pk):
-    blog = get_object_or_404(Blog, pk=pk)
     data = {
-        'blog': blog,
-        'Top5Blog':Top5Blog(request),
+        'Base': Base.objects.all(),
+        'blog': get_object_or_404(Blog, pk=pk),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -203,9 +195,10 @@ def blog_items(request, pk):
 
 def lienhe(request):
     data = {
+        'Home': Home.objects.all(),
+        'Base': Base.objects.all(),
         'LienHe':LienHe.objects.all(),
-        'Top5Blog':Top5Blog(request),
-        'Blog':BlogItems(request),
+        'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)

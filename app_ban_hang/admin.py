@@ -21,6 +21,9 @@ admin.site.register(ThongTinNguoiMua)
 admin.site.register(LienHe)
 admin.site.register(TuVanNoiThat)
 
+admin.site.register(Carousel_Home)
+admin.site.register(Home)
+
 
 
 ###################################################################################################

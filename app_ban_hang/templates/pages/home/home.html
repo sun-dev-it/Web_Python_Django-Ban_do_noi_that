@@ -11,22 +11,27 @@
   <div class="col-sm-1"></div>
   <div class="col-sm-2 menu">
     <div class="menu-nav border_right">
-      <a class="nav-link item-menu" href="#">Trang chủ <i class="mui_ten right"></i></a>
+      <a href="/" class="nav-link"><center><div class="menu_blog">TRANG CHỦ </div></center></a>
+      <a class="nav-link item-menu" href="#gioithieucuahang">Giới thiệu cửa hàng<i class="mui_ten right"></i></a>
+      <a class="nav-link item-menu" href="#topbanchay">Top bán chạy<i class="mui_ten right"></i></a>
+      <a class="nav-link item-menu" href="#spmoi">Sản phẩm mới nhất<i class="mui_ten right"></i></a>
+      <a class="nav-link item-menu" href="#tinnoibat">Tin nổi bật<i class="mui_ten right"></i></a>
     </div>
   </div>
 
   <div class="col-sm-6 content-web">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'images/slide3.jpg' %}" class="d-block" alt="...">
-        </div>
+        {% for carousel in Carousel_active %}
+          <div class="carousel-item active">
+            <img src="{{carousel.img_activeurl}}" class="d-block" alt="...">
+          </div>
+        {% endfor %}
+        {% for carousel in Carousel %}
         <div class="carousel-item">
-          <img src="{% static 'images/slide4.jpg' %}" class="d-block" alt="...">
+          <img src="{{carousel.imgurl}}" class="d-block" alt="...">
         </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/slide5.jpg' %}" class="d-block" alt="...">
-        </div>
+        {% endfor %}
       </div>
     
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -38,7 +43,90 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <br><br><br>
+
+    <h3 id="gioithieucuahang"></h3>
+    <h3 class="topban"> GIỚI THIỆU CỬA HÀNG </h3>
+    {% for nd in Home %}
+      {{nd.NoiDung|safe|linebreaks}}
+    {% endfor %}
+
+    <h3 id="topbanchay"></h3>
     <h3 class="topban"> TOP BÁN CHẠY </h3>
+    <div class="row">
+      {% for sanpham in SP_BanChay %}
+        <div class="col-sm-4 item-sp">
+            <a href="sanpham/{{sanpham.id}}" class="image_sp"><div><img src="{{sanpham.imageurl}}"/></div></a>          
+            <div class="row">
+                <div class="col-sm-9">
+                    <a href="sanpham/{{sanpham.id}}" class="ten_sp">{{sanpham.TenSP}}</a>
+                </div>
+                <div class="col-sm-3 ban-danh_gia al-right">
+                    Đã bán: {{sanpham.LuotMua}} 
+                    <br> 
+                    Đánh giá: {{sanpham.DanhGia}}
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-8 Gia">
+                    {{sanpham.GiaSP}}<sup>đ</sup>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h3 id="spmoi"></h3>
+    <h3 class="topban"> SẢN PHẨM MỚI NHẤT </h3>
+    <div class="row">
+      {% for sanpham in SP_Moi %}
+        <div class="col-sm-4 item-sp">
+            <a href="sanpham/{{sanpham.id}}" class="image_sp"><div><img src="{{sanpham.imageurl}}"/></div></a>          
+            <div class="row">
+                <div class="col-sm-9">
+                    <a href="sanpham/{{sanpham.id}}" class="ten_sp">{{sanpham.TenSP}}</a>
+                </div>
+                <div class="col-sm-3 ban-danh_gia al-right">
+                    Đã bán: {{sanpham.LuotMua}} 
+                    <br> 
+                    Đánh giá: {{sanpham.DanhGia}}
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-8 Gia">
+                    {{sanpham.GiaSP}}<sup>đ</sup>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h3 id="tinnoibat"></h3>
+    <h3 class="topban"> TIN NỔI BẬT </h3>
+    <div class="row">
+      {% for blog in TinNoiBat %}
+        <div class="col-sm-6">
+          <div class="k_items_blog row">
+            <div class="col-sm-5">
+              <a href="{{blog.id}}"><img src="{{blog.imageurl}}" class="col-sm-12"/></a>
+              <div><img src="{% static 'images/timtrang.png' %}" class="timtrang">{{blog.LuotLike}}</div>
+            </div>
+            <div class="col-sm-7">
+              <a class="nav-link tieude_blog" href="{{blog.id}}"> <span>{{blog.TieuDe}}</span></a>
+              <div class="k_date_blog"><span class="date_blog">{{blog.NgayDang}}</span></div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <hr><br><br>
+    {% for logo in Base %}
+    <center>
+        <a class="nav-link" href="/"><img src="{{logo.Logo_weburl}}" class="logo_web"></a>
+    </center>
+    {% endfor %}
   </div>
 
 </div>

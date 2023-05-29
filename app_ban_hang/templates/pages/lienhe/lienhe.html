@@ -11,8 +11,16 @@
 <div class="row">
   <div class="col-sm-3"></div>
   <div class="col-sm-6 content_lienhe">
+    <div class="k_content_lienhe">
     {% for lienhe in LienHe %}
       {{lienhe.NoiDung|safe|linebreaks}}
+    {% endfor %}
+    </div>
+    <br>
+    {% for logo in Base %}
+      <center>
+          <a class="nav-link" href="/"><img src="{{logo.Logo_weburl}}" class="logo_web"></a>
+      </center>
     {% endfor %}
   </div>
 </div>

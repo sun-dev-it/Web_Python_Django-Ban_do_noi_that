@@ -1,8 +1,14 @@
-from .forms import *
-from .models import *
-from .function import *
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from django.http import JsonResponse
+from .models import Comment
+from django import forms
+from .function import *
+from .models import *
 import json
+import re
 
 ## Các danh mục sản phẩm
 def MenuSP_categories(request):
@@ -65,10 +71,97 @@ def updateitem(request):
     return JsonResponse('added', safe=False)
 
 
-def BlogItems(request):
-    data = Blog.objects.all().order_by('-id')
-    return data
 
-def Top5Blog(request):
-    data = Blog.objects.all().order_by('-id')[:5]
-    return data
+### Form đăng kí tài khoản
+###################################################################################################################
+class RegistrationForm(forms.Form):
+    username = forms.CharField(label='Tài khoản', max_length=30)
+    email = forms.EmailField(label='Email')
+    password1 = forms.CharField(label='Mật khẩu', widget=forms.PasswordInput())
+    password2 = forms.CharField(label='Nhập lại mật khẩu', widget=forms.PasswordInput())
+
+    # Kiểm tra mật khẩu nhập lại có đúng không
+    def clean_password2(self):
+        if 'password1' in self.cleaned_data:
+            password1 = self.cleaned_data['password1']
+            password2 = self.cleaned_data['password2']
+            if password1 == password2 and password1:
+                return password2
+        raise forms.ValidationError("Mật khẩu không hợp lệ")
+        
+    # Kiểm tra user name
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if not re.search(r'^\w+$', username):
+            raise forms.ValidationError("Tên tài khoản không được có kí tự đặt biệt")
+        try:
+            User.objects.get(username=username)
+        except ObjectDoesNotExist:
+            return username
+        raise forms.ValidationError("Tài khoản đã tồn tại")
+
+    # Tạo user
+    def save(self):
+        User.objects.create_user(username=self.cleaned_data['username'], email=self.cleaned_data['email'], password=self.cleaned_data['password1'])
+
+# Comment
+class CommentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.author = kwargs.pop('author', None)
+        self.sanpham = kwargs.pop('sanpham', None)
+        super().__init__(*args, **kwargs)
+    def save(self, commit=True):
+        comment = super().save(commit=False)
+        comment.author = self.author
+        comment.sanpham = self.sanpham
+        comment.save()
+    class Meta:
+        model = Comment
+        fields = ["body"]
+
+### Search
+###################################################################################################################
+def searched(request):
+    if request.method == "POST":
+        searched = request.POST ["searched"]
+    return searched
+def keys(request):
+    if request.method == "POST":
+        searched = request.POST ["searched"]
+        keys = SanPham.objects.filter(TenSP__contains = searched)
+    return keys
+
+
+### Đăng kí
+###################################################################################################################
+def Form_DangKi(request):
+    form = RegistrationForm()
+    # Nếu bấm nút đăng kí sẽ đưa dữ liệu vào 
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        # gọi các hàm ở forms.py nếu hợp lệ
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/login')
+    return form
+
+
+### Form comment sản phẩm
+###################################################################################################################
+def Form_Comment_SP(request, pk):
+    sanpham = get_object_or_404(SanPham, pk=pk)
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST, author=request.user, sanpham=sanpham)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(request.path)
+    return form
+
+
+
+def DanhMucSP(request):
+    active_category = MenuSP_active_category(request)
+    if active_category:
+        sanpham = SanPham.objects.filter(category__slug = active_category)
+    return sanpham

@@ -17,11 +17,11 @@
       <img src="{{blog.imageurl}}" class="col-sm-7"/>
       <a class="nav-link tieude_blog" href="{{blog.id}}"> {{blog.TieuDe}}</a>
     </div>
-    {{blog.NoiDung}}
+    <p>{{blog.NoiDung|safe|linebreaks}}</p>
     <div class="k_thongtin_blog">
       <span class="col-sm-3">{{blog.NgayDang}}</span>
-      <span>{{blog.LuotLike}}</span>
     </div>
+    <div class="like_blog"><img src="{% static 'images/timtrang.png' %}" class="timtrang_chitiet">{{blog.LuotLike}}</div>
     <hr/>
   </div>
 </div>
