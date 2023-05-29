@@ -98,7 +98,7 @@
                     </div>
                     <div class="col-sm-3"> 
                         <img src="{% static 'images/hotline.png' %}" class="hotline">
-                        Hotline: <i>0941436774</i>
+                        Hotline: <i>0931436774</i>
                     </div>
                 </div>
             </div>
@@ -110,9 +110,6 @@
                 <ul class="nav main_hover"  id="main-menu">
                     <li class="col-sm-2">
                         <a class="nav-link pages_web" href="/"> Trang chủ<i class="mui_ten down"></i></a>
-                        <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="#">Trang chủ</a>
-                        </ul>
                     </li>
 
                     <li class="col-sm-3 bg_pages_web">
@@ -126,25 +123,19 @@
 
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'tuvannoithat' %}">Tư vấn nội thất<i class="mui_ten down"></i></a>
-                        <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="#">Tư vấn nội thất</a>
-                        </ul>
                     </li>
 
                     <li class="col-sm-3 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'blog' %}">Góc cảm hứng <i class="mui_ten down"></i></a>
                         <ul class="hover_menu_web">
-                            {% for i in Top5Blog %}
-                                <a class="nav-link item-menu" href="#"> {{i.TieuDe}} </a>
+                            {% for blog in Top5Blog %}
+                                <a class="nav-link item-menu" href="/blog/{{blog.id}}"> {{blog.TieuDe}} </a>
                             {% endfor %}
                         </ul>
                     </li>
 
                     <li class="col-sm-2 bg_pages_web">
                         <a class="nav-link pages_web" href="{% url 'lienhe' %}">Liên hệ <i class="mui_ten down"></i></a>
-                        <ul class="hover_menu_web">
-                            <a class="nav-link item-menu" href="#">Liên hệ</a>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -164,13 +155,17 @@
                 <div class="col-sm-2 ct_h2_ft">
                     <h2><a class="nav-link" href="/"><img src="{% static 'images/logo.png' %}" class="logo_web_ft"></a></h2>
                     <hr>
-                    <h3><a class="h3_ft" href="{% url 'sanpham' %}">Sản phẩm</a></h3>
+                    <h3><a class="h3_ft" href="{% url 'listsp' %}">Sản phẩm</a></h3>
                     <h3><a class="h3_ft" href="{% url 'tuvannoithat' %}">Tư vấn nội thất</a></h3>
                     <h3><a class="h3_ft" href="{% url 'blog' %}">Góc cảm hứng</a></h3>
                     <h3><a class="h3_ft" href="{% url 'lienhe' %}">Liên hệ</a></h3>
                 </div>
                 <div class="col-sm-2 ct_h2_ft">
                     <h2><a class="h2_ft" href="/">Hỗ trợ khách hàng</a></h2>
+                    <hr>
+                    {% for hotro in Base %}
+                        <h3><a class="h3_ft" href="">{{hotro.HoTroKhachHang}}</a></h3>
+                    {% endfor %}
                 </div>
                 <div class="col-sm-2 ct_h2_ft">
                     <h2><a class="h2_ft" href="/">Liên hệ chúng tôi</a></h2>

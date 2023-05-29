@@ -67,12 +67,13 @@ def category(request):
 # Home
 def home(request):
     data = {
+        'Base': Base.objects.all(),
         'Top5Blog':Top5Blog(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
-    return render(request, 'pages/home.html', data)
+    return render(request, 'pages/home/home.html', data)
 
 # Hồ sơ
 def hoso(request):
@@ -130,6 +131,7 @@ def profile(request):
     return render(request, 'pages/profile/profile.html', data)
 
 # Tạo tài khoản
+
 def register(request):
     form = RegistrationForm()
     # Nếu bấm nút đăng kí sẽ đưa dữ liệu vào 
@@ -142,7 +144,7 @@ def register(request):
     data = {
         'form': form
     }
-    return render(request, 'register.html', data)
+    return render(request, 'pages/sign_up-login/register.html', data)
 
 # Thanh tìm kiếm
 def search(request):
@@ -163,14 +165,17 @@ def search(request):
 # Tư vấn nội thất
 def tuvannoithat(request):
     data = {
+        'TuVanNoiThat':TuVanNoiThat.objects.all(),
         'Top5Blog':Top5Blog(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
-    return render(request, 'pages/tuvannoithat.html', data)
+    return render(request, 'pages/tuvannoithat/tuvannoithat.html', data)
 
-# Blog
+
+### Blog
+#####################################################################################################################################
 def blog(request):
     data = {
         'Top5Blog':Top5Blog(request),
@@ -191,13 +196,18 @@ def blog_items(request, pk):
         'active_category': MenuSP_active_category(request)
     }
     return render(request, "pages/blog/blog_items.html", data)
-# Liên hệ
+
+
+### Liên hệ
+#####################################################################################################################################
+
 def lienhe(request):
     data = {
+        'LienHe':LienHe.objects.all(),
         'Top5Blog':Top5Blog(request),
         'Blog':BlogItems(request),
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }
-    return render(request, 'pages/lienhe.html', data)
+    return render(request, 'pages/lienhe/lienhe.html', data)

@@ -7,30 +7,31 @@
 {% block linkweb %} <a href="/" class="link-webs"><i><u>Trang cá nhân</u></i></a>> {% endblock linkweb %}
 
 {% block content %}
-<div class="row bg_pf">
-  <div class="col-sm-2"></div>
+<div class="row">
+  <div class="col-sm-1"></div>
   <div class="col-sm-2 menu">
-    <div class="myprofile">
-      <img src="{% static 'images/avt.png' %}" class="avt"> 
-      {{user.username}}
+    <div class="k_menu_pf">
+      <div class="myprofile">
+        <img src="{% static 'images/avt.png' %}" class="avt"> 
+        {{user.username}}
+      </div>
+      <hr>
+      <nav>
+          <h3><a href="{% url 'hoso' %}" class="pf_item">Hồ sơ</a></h3>
+          <h3><a href="{% url 'giohang' %}" class="pf_item">Giỏ hàng</a></h3>
+          <h3><a href="{% url 'donhang' %}" class="pf_item">Đơn hàng</a></h3>
+      </nav>
     </div>
-    <hr>
-    <nav>
-        <h3><a href="{% url 'hoso' %}" class="pf_item">Hồ sơ</a></h3>
-        <h3><a href="{% url 'giohang' %}" class="pf_item">Giỏ hàng</a></h3>
-        <h3><a href="{% url 'donhang' %}" class="pf_item">Đơn hàng</a></h3>
-    </nav>
   </div>
+  <div class="col-sm-1"></div>
+  
   <div class="col-sm-4">
 
-    {% block hoso %}
-    {% endblock hoso %}
+    {% block hoso %} {% endblock hoso %}
 
-    {% block giohang %}
-    {% endblock giohang %}
+    {% block giohang %} {% endblock giohang %}
 
-    {% block donhang %}
-    {% endblock donhang %}
+    {% block donhang %} {% endblock donhang %}
 
   </div>
 </div>

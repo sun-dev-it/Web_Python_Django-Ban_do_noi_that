@@ -4,7 +4,7 @@
 
 {% load static %}
 
-{% block linkweb %} <i><u><a href="/" class="link-webs">Sản phẩm</a></u> > <u class="link-webs">chi tiết sản phẩm</u></i> {% endblock linkweb %}
+{% block linkweb %} <i><u><a href="{% url 'listsp' %}" class="link-webs">Sản phẩm</a></u> > <u class="link-webs">chi tiết sản phẩm</u></i> {% endblock linkweb %}
 
 {% block content %}
 <div class="row">

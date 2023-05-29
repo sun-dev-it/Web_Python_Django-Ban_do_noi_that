@@ -282,6 +282,10 @@
     font-size: 16px; 
 }
 
+.h2_ft:hover, .h3_ft:hover{
+    color:rgb(197, 197, 197);
+}
+
 .ct_h2_ft h2{
     width: 70%;
     height: 80px;

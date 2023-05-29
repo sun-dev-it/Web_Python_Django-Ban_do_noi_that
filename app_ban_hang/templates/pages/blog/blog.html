@@ -4,7 +4,7 @@
 
 {% load static %}
 
-{% block linkweb %} <a href="/" class="link-webs"><i><u>Góc cảm hứng</u></i></a>> {% endblock linkweb %}
+{% block linkweb %} <a href="{% url 'blog' %}" class="link-webs"><i><u>Góc cảm hứng</u></i></a>> {% endblock linkweb %}
 
 {% block content %}
 <div class="row">
@@ -12,8 +12,8 @@
   <div class="col-sm-2 menu">
     <div class="menu-nav border_right_blog pd_blog">
       <div class="menu_blog">BÀI VIẾT MỚI NHẤT</div>
-      {% for blog in Blog %}
-      <div class="row">
+      {% for blog in Top5Blog %}
+      <div class="row k_menu_blog">
         <div class="col-sm-5">
           <img src="{{blog.imageurl}}" class="k_img_blog col-sm-12"/>
         </div>
@@ -25,18 +25,22 @@
     </div>
   </div>
   <div class="col-sm-6 content-web">
-    
-    {% for blog in Blog %}
-      <div class="k_img_blog">
-        <img src="{{blog.imageurl}}" class="col-sm-7"/>
-        <a class="nav-link tieude_blog" href="{{blog.id}}"> {{blog.TieuDe}}</a>
-      </div>
-      <div class="k_thongtin_blog">
-        <span class="col-sm-3">{{blog.NgayDang}}</span>
-        <span>{{blog.LuotLike}}</span>
-      </div>
-      <hr/>
-    {% endfor %}
+    <div class="row">
+      {% for blog in Blog %}
+        <div class="col-sm-6">
+          <div class="k_items_blog row">
+            <div class="col-sm-5">
+              <a href="{{blog.id}}"><img src="{{blog.imageurl}}" class="col-sm-12"/></a>
+              <div><img src="{% static 'images/timtrang.png' %}" class="timtrang">{{blog.LuotLike}}</div>
+            </div>
+            <div class="col-sm-7">
+              <a class="nav-link tieude_blog" href="{{blog.id}}"> <span>{{blog.TieuDe}}</span></a>
+              <div class="k_date_blog"><span class="date_blog">{{blog.NgayDang}}</span></div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock %}

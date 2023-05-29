@@ -10,12 +10,16 @@ class SanPhamAdmin(admin.ModelAdmin):
     list_filter = ['TonKho']
     search_fields = ['TenSP']
     inlines = [CommentInline]
+
+admin.site.register(Base)
 admin.site.register(SanPham)
 admin.site.register(Blog)
 admin.site.register(LoaiSP)
 admin.site.register(DonHang)
 admin.site.register(OrderItem)
 admin.site.register(ThongTinNguoiMua)
+admin.site.register(LienHe)
+admin.site.register(TuVanNoiThat)
 
 
 

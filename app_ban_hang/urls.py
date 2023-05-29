@@ -5,8 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('register/', views.register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='pages/home.html'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='pages/sign_up-login/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='pages/home/home.html'), name='logout'),
     path('profile/', views.profile, name='profile'),
     path('hoso/', views.hoso, name='hoso'),
     path('giohang/', views.giohang, name='giohang'),
@@ -14,7 +14,7 @@ urlpatterns = [
     path('muahang/', views.muahang, name='muahang'),
     path('update_item/', views.updateitem, name='update_item'),
     path('search', views.search, name='search'),
-    path('sanpham/', views.category, name='category'),
+    path('category/', views.category, name='category'),
 
     path('sanpham/', views.listsanpham, name='sanpham'),
     path('sanpham/<int:pk>/', views.sanpham, name='sanpham'),

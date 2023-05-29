@@ -75,3 +75,8 @@
 .khung-ct-pf table tr th, .khung-ct-pf-mua table tr th {
     padding: 5px 50px 5px 0;
 }
+
+.k_menu_pf{
+    border: 1px solid black;
+    padding: 12px;
+}

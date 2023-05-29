@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.conf import settings
 
-# Create your models here.
-
+### Sản phẩm
+###########################################################################3
 # Loại sản phẩm
 class LoaiSP(models.Model):
     sub_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='sub_categories', null=True, blank=True)
@@ -88,7 +88,19 @@ class OrderItem(models.Model):
         total = self.sp.GiaSP * self.soluong
         return total
 
+class ThongTinNguoiMua(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
+    order = models.ForeignKey(DonHang, on_delete=models.SET_NULL, null = True, blank = True)
+    DiaChi= models.CharField(max_length=200, null= True)
+    SDT= models.CharField(max_length=11, null= True)
+    date_added = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.DiaChi
+
+
+### blog
+############################################################################################################
 class Blog(models.Model):
     image = models.ImageField(null=True, blank=True)
     TieuDe = models.CharField(max_length=200)
@@ -105,14 +117,21 @@ class Blog(models.Model):
         return url
 
 
-class ThongTinNguoiMua(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
-    order = models.ForeignKey(DonHang, on_delete=models.SET_NULL, null = True, blank = True)
-    DiaChi= models.CharField(max_length=200, null= True)
-    SDT= models.CharField(max_length=11, null= True)
-    date_added = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.DiaChi
-
+### Liên hệ
 ##########################################################################################################################
+class LienHe(models.Model):
+    NoiDung = models.TextField()
+
+class TuVanNoiThat(models.Model):
+    NoiDung = models.TextField()
+
+
+### base
+##########################################################################################################################
+class Base(models.Model):
+    SDT = models.CharField(max_length=15, null= True)
+    Logo_web = models.ImageField(null=True, blank=True)
+    DiaChiCuaHang = models.CharField(max_length=100, null= True)
+    HoTroKhachHang = models.CharField(max_length=100, null= True)
+    LienHeChungToi = models.CharField(max_length=100, null= True)
+    DiaChi_Khac = models.CharField(max_length=100, null= True)
