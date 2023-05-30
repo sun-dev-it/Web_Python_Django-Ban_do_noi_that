@@ -3,12 +3,14 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.urls import reverse
 from .models import Comment
 from django import forms
 from .function import *
 from .models import *
 import json
 import re
+
 
 ## Các danh mục sản phẩm
 def MenuSP_categories(request):
@@ -71,6 +73,25 @@ def updateitem(request):
     return JsonResponse('added', safe=False)
 
 
+# Nút tim blog
+###################################################################
+def Like(request, pk):
+    stuff = get_object_or_404(Blog, id=pk)
+    if request.user.is_authenticated:
+        if stuff.Like.filter(id=request.user.id).exists():
+            stuff.Like.remove(request.user)
+        else:
+            stuff.Like.add(request.user)
+    return stuff
+
+def Liked(request, pk):
+    liked = False
+    stuff = get_object_or_404(Blog, id=pk)
+    if request.user.is_authenticated:
+        if stuff.Like.filter(id=request.user.id).exists():
+            liked = True
+    return liked
+
 
 ### Form đăng kí tài khoản
 ###################################################################################################################
@@ -79,16 +100,7 @@ class RegistrationForm(forms.Form):
     email = forms.EmailField(label='Email')
     password1 = forms.CharField(label='Mật khẩu', widget=forms.PasswordInput())
     password2 = forms.CharField(label='Nhập lại mật khẩu', widget=forms.PasswordInput())
-
-    # Kiểm tra mật khẩu nhập lại có đúng không
-    def clean_password2(self):
-        if 'password1' in self.cleaned_data:
-            password1 = self.cleaned_data['password1']
-            password2 = self.cleaned_data['password2']
-            if password1 == password2 and password1:
-                return password2
-        raise forms.ValidationError("Mật khẩu không hợp lệ")
-        
+ 
     # Kiểm tra user name
     def clean_username(self):
         username = self.cleaned_data['username']
@@ -165,3 +177,4 @@ def DanhMucSP(request):
     if active_category:
         sanpham = SanPham.objects.filter(category__slug = active_category)
     return sanpham
+###################################################################################################################

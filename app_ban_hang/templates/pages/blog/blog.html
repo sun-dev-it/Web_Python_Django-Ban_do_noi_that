@@ -4,7 +4,7 @@
 
 {% load static %}
 
-{% block linkweb %} <a href="{% url 'blog' %}" class="link-webs"><i><u>Góc cảm hứng</u></i></a>> {% endblock linkweb %}
+{% block linkweb %} <i><a href="{% url 'home' %}" class="link-webs"><img src="{% static 'images/icon_home.png' %}" class="icon_home"></a>><a href="{% url 'blog' %}" class="link-webs"><u>Góc cảm hứng</u></i></a>> {% endblock linkweb %}
 
 {% block content %}
 <div class="row">
@@ -31,7 +31,6 @@
           <div class="k_items_blog row">
             <div class="col-sm-5">
               <a href="{{blog.id}}"><img src="{{blog.imageurl}}" class="col-sm-12"/></a>
-              <div><img src="{% static 'images/timtrang.png' %}" class="timtrang">{{blog.LuotLike}}</div>
             </div>
             <div class="col-sm-7">
               <a class="nav-link tieude_blog" href="{{blog.id}}"> <span>{{blog.TieuDe}}</span></a>

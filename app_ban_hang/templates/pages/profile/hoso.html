@@ -1,8 +1,10 @@
 {% extends "pages/profile/profile.html" %}
 
+{% load static %}
+
 {%block title %} Đơn hàng {% endblock %}
 
-{% block linkweb %} <a href="/" class="link-webs"><i><u>Hồ sơ</u></i></a>> {% endblock linkweb %}
+{% block linkweb %} <i><a href="{% url 'home' %}" class="link-webs"><img src="{% static 'images/icon_home.png' %}" class="icon_home"></a>><a href="/" class="link-webs"><u>Hồ sơ</u></i></a>> {% endblock linkweb %}
 
 {% block hoso %}
 <br/>

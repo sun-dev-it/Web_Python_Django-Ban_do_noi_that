@@ -23,6 +23,7 @@
 <body>
     <script type="text/javascript">
         var user ='{{request.user}}'
+        
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -65,8 +66,6 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-3 dk-dn-mg">
                         {% if user.username %}
-
-
                         <ul class="nav pf_hover" id="pf">    
                             <div class="pf-dk">
                                 <a class="dn-dk" href="{% url 'hoso' %}"><img src="{% static 'images/avt.png' %}" class="avt"> {{user.username}}</a> 
@@ -79,10 +78,7 @@
                                 <img src="{% static 'images/giohang.png' %}" class="gio_hang_home"> 
                                 <sup class="sl_sp_giohang">{{TongSPTrongGio}}</sup> 
                             </a>
-
                         </ul>
-
-
                         {% else %}
                             <a class="dn-dk" href="{% url 'login' %}">Đăng nhập</a> | <a class="dn-dk" href="{% url 'register' %}">Đăng kí</a>
                         {% endif %}
@@ -190,7 +186,7 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/giohang.js' %}"> </script>
-    <script src="{% static 'js/tim_blog.js' %}"> </script>
+    <script src="{% static 'js/app_web.js' %}"> </script>
+    
 </body>
 </html>

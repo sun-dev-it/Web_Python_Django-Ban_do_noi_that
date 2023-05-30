@@ -15,6 +15,7 @@ for (i=0; i < updateBtns.length; i++){
     })
 }
 
+
 function updateUserOrder(sp_id, action){
     console.log('Người dùng đã đăng nhập')
     var url = '/update_item/'
@@ -35,6 +36,17 @@ function updateUserOrder(sp_id, action){
     })
 }
 
-function ThongBaoDaThemVaoGioHang() {
-    alert("Đã thêm vào giỏ hàng");
+function ThongBaoDaThemVaoGioHang(user) {
+    if (user ===  "AnonymousUser"){
+        alert('Người dùng chưa đăng nhập')
+    } else {
+        console.log('user', user)
+        alert("Đã thêm vào giỏ hàng");
+    }
+}
+
+function thongbao_login(user) {
+    if (user ===  "AnonymousUser"){
+        alert('Vui lòng đăng nhập!')
+    }
 }

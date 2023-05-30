@@ -179,7 +179,9 @@ def blog(request):
     return render(request, 'pages/blog/blog.html', data)
 
 def blog_items(request, pk):
-    data = {
+    data = { 
+        'liked': Liked(request, pk),
+        'like': Like(request, pk).toltal_like(),
         'Base': Base.objects.all(),
         'blog': get_object_or_404(Blog, pk=pk),
         'Top5Blog':Blog.objects.all().order_by('-id')[:5],

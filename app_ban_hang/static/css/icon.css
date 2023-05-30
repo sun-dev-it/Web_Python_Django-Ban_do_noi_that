@@ -136,14 +136,14 @@
 
 .change_sl1{
     width: 15px;
-    margin: 0px 3px 1px 3px;
-    padding:6px 3px;
+    margin: 0px 1px 1px 1px;
+    padding: 4px 2px;
     background:#d1d1d1;
 }
 .change_sl2{
     width: 15px;
-    margin: 0px 3px 1px 3px;
-    padding: 3px;
+    margin: 0px 1px 1px 1px;
+    padding: 2px;
     background:#d1d1d1;
 }
 .change_sl1:hover, .change_sl2:hover{
@@ -160,6 +160,19 @@
 }
 
 .timtrang{
-    width: 21px;
-    padding-bottom: 10px;
+    width: 18px;
+    padding-bottom: 13px;
+}
+.tim_chitiet{
+    width: 25px;
+}
+
+.button_like{
+    background:none;
+    border:none;
+}
+
+.icon_home{
+    width:16px; 
+    margin-bottom:4px;
 }

@@ -88,6 +88,9 @@ class OrderItem(models.Model):
         total = self.sp.GiaSP * self.soluong
         return total
 
+
+### THông tin đơn hàng và người mua
+############################################################################################################
 class ThongTinNguoiMua(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
     order = models.ForeignKey(DonHang, on_delete=models.SET_NULL, null = True, blank = True)
@@ -95,8 +98,7 @@ class ThongTinNguoiMua(models.Model):
     SDT= models.CharField(max_length=11, null= True)
     date_added = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.DiaChi
+
 
 
 ### blog
@@ -105,9 +107,8 @@ class Blog(models.Model):
     image = models.ImageField(null=True, blank=True)
     TieuDe = models.CharField(max_length=200)
     NoiDung = models.TextField()
-    LuotLike = models.IntegerField(default=0, null = True, blank=True)
-    SoCmt = models.IntegerField(default=0, null = True, blank=True)
     NgayDang = models.DateTimeField(auto_now_add=True)
+    Like = models.ManyToManyField(User, related_name='like_blog')
 
     def imageurl(self):
         try:
@@ -116,6 +117,8 @@ class Blog(models.Model):
             url = ''
         return url
 
+    def toltal_like(self):
+        return self.Like.count()
 
 ### Liên hệ
 ##########################################################################################################################

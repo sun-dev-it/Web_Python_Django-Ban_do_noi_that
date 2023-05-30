@@ -4,7 +4,7 @@
 
 {% load static %}
 
-{% block linkweb %} <i><a href="{% url 'blog' %}" class="link-webs"><u>Góc cảm hứng</u></a>><u class="link-webs">bài viết</u></i> {% endblock linkweb %}
+{% block linkweb %} <i><a href="{% url 'home' %}" class="link-webs"><img src="{% static 'images/icon_home.png' %}" class="icon_home"></a>><a href="{% url 'blog' %}" class="link-webs"><u>Góc cảm hứng</u></a>><u class="link-webs">bài viết</u></i> {% endblock linkweb %}
 
 {% block content %}
 <div class="row">
@@ -21,7 +21,26 @@
     <div class="k_thongtin_blog">
       <span class="col-sm-3">{{blog.NgayDang}}</span>
     </div>
-    <div class="like_blog"><img src="{% static 'images/timtrang.png' %}" class="timtrang_chitiet">{{blog.LuotLike}}</div>
+    <div class="col-sm-1">
+      {% if user.username %}
+        <center>
+          <form action="{% url 'blog' blog.pk %}" method="POST">
+            {% csrf_token %}
+            {% if liked %}
+              <button type="submit", name="blog_id", value="{{blog.id}}" class="button_like"><img src="{% static 'images/timtrang.png' %}" class="tim_chitiet"></button> 
+            {% else %}
+              <button type="submit", name="blog_id", value="{{blog.id}}" class="button_like"><img src="{% static 'images/timdo.png' %}" class="tim_chitiet"></button> 
+            {% endif %}
+            {{like}}
+          </form>
+        </center>
+      {% else %}
+        <center>
+          <div class="like_blog"><img src="{% static 'images/timtrang.png' %}" class="tim_chitiet" onclick="thongbao_login('{{user}}')"></div>
+          {{blog.LuotLike}}
+        </center>
+      {% endif %}
+    </div>
     <hr/>
   </div>
 </div>
