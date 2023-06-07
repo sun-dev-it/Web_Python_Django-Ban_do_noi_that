@@ -1,19 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng kí</title>
-</head>
-<body>
-    <div class="form_login">
-        <!-- khi bấm nút đăng kí sẽ load lại, phương thức post ẩn dữ liệu -->
-        <form action='.' method='POST'>
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Đăng kí"/>
-        </form>
+{% extends "base.html" %}
+
+{%block title %} Đăng nhập {% endblock %}
+
+{% load static %}
+
+{% block linkweb %} <i><a href="{% url 'home' %}" class="link-webs"><img src="{% static 'images/icon_home.png' %}" class="icon_home"></a>><a href="{% url 'register' %}" class="link-webs"><u>Đăng kí</u></i></a>> {% endblock linkweb %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<center>
+    <div class="col-sm-5">
+        <div class="khung_dk">
+            <div class="row">
+                <div class="col-sm-6 hello_signup khung_dangnhap">
+                    <br>
+                    <h5 class="xinchao"><b>Xin chào</b></h5>
+                    <p> Đăng kí tài khoản nhanh chóng và dễ dàng!</p>
+                   <br><br><br>
+                   <a href="{% url 'login' %}" class="link_dk"> Đăng nhập </a>
+                </div>
+                <div class="col-sm-6 khung_dangnhap">
+                        <!-- khi bấm nút đăng kí sẽ load lại, phương thức post ẩn dữ liệu -->
+                        <form action='.' method='POST'>
+                            <div class="">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                                <input type="submit" value="Đăng kí"/>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</center>
+{% endblock %}

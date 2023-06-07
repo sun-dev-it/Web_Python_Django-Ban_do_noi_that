@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
 from .function import *
 from .models import *
 
@@ -57,6 +56,7 @@ def category(request):
 
 # Home
 def home(request):
+    tilesanpham(request)
     data = {
         'Home': Home.objects.all(),
         'Carousel_active': Carousel_Home.objects.all().order_by('-id')[:1],
@@ -99,6 +99,7 @@ def giohang(request):
 # mua hàng
 def muahang(request):
     data = {
+        'order': DonHangMua(request),
         'Base': Base.objects.all(),
         'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'SanPhamTrongGio':SanPhamTrongGio(request), 
@@ -115,6 +116,7 @@ def donhang(request):
     data = {
         'Base': Base.objects.all(),
         'Top5Blog':Blog.objects.all().order_by('-id')[:5],
+        'SanPhamTrongGio':SanPhamTrongGio(request), 
         'TongSPTrongGio':TongSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
@@ -135,7 +137,10 @@ def profile(request):
 
 # Tạo tài khoản
 def register(request):
-    data = {'form': Form_DangKi(request)}
+    data = {
+        'Base': Base.objects.all(),
+        'form': Form_DangKi(request)
+        }
     return render(request, 'pages/sign_up-login/register.html', data)
 
 # Thanh tìm kiếm

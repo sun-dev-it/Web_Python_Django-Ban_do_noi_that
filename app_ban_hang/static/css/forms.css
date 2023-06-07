@@ -10,5 +10,62 @@ textarea{
 
 /* form đăng nhập */
 
+.khung_dn_dk{
+    padding-right: 11px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px;
+    font-family: 'Montserrat';
+    height: 300px;
+}
+.khung_dk{
+    padding-left: 11px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px;
+    font-family: 'Montserrat';
+    height: 300px;
+}
 
-/* form đăng kí */
+.hello_login{
+    height: 300px;
+    color: rgb(247, 247, 247);
+    background: #222222;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.hello_signup{
+    height: 300px;
+    color: rgb(247, 247, 247);
+    background: #222222;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.xinchao{
+    font-size: 35px;
+}
+
+.khung_dangnhap{
+    padding: 50px 20px;
+}
+
+.link_dk{
+    border: 1px solid rgb(230, 230, 230);
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    padding: 5px;
+}
+
+.link_dk:hover{
+    background:white;
+    color: black;
+}
+
+.khung_dktk {
+    text-align: left;
+}
+.khung_dktk input{
+    text-align: right;
+}

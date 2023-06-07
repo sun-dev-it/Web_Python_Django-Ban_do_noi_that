@@ -1,8 +1,9 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+import matplotlib.pyplot as plt
 from django.urls import reverse
 from .models import Comment
 from django import forms
@@ -10,15 +11,6 @@ from .function import *
 from .models import *
 import json
 import re
-
-
-## Các danh mục sản phẩm
-def MenuSP_categories(request):
-    categories = LoaiSP.objects.filter(is_sub = False)
-    return categories
-def MenuSP_active_category(request):
-    active_category = request.GET.get('category', '')
-    return active_category
 
 ## Tổng món hàng có trong giỏ hàng
 def TongSPTrongGio(request):
@@ -43,6 +35,14 @@ def SanPhamTrongGio(request):
         order={'get_items': 0, 'get_money':0}
     return  items
 
+def DonHangMua(request):
+    if request.user.is_authenticated:
+        customer = request.user
+        order, created = DonHang.objects.get_or_create(customer=customer, complete=False)
+    else:
+        order={'get_items': 0, 'get_money':0}
+    return order
+
 ## Tổng tiền sản phẩm trong giỏ hàng
 def TongTienSPTrongGio(request):
     if request.user.is_authenticated:
@@ -51,6 +51,24 @@ def TongTienSPTrongGio(request):
     else:
         TongTienSPTrongGio={'DonHang.get_items': 0, 'DonHang.get_money':0}
     return TongTienSPTrongGio
+
+
+def XoaDonHang(request, item_id):
+    don = OrderItem.objects.get(id=item_id)
+    don.delete()
+    return redirect('giohang')
+
+def DonHangDaMua(request, DonHang_id):
+    if request.user.is_authenticated:
+        customer = request.user
+        donhang, created = DonHang.objects.get_or_create(customer=customer, complete=False)
+        items = donhang.orderitem_set.all()
+    else:
+        items=[]
+    data = {
+        'items':items
+    }
+    return redirect('donhang', data)
 
 
 ###################################################################
@@ -116,20 +134,6 @@ class RegistrationForm(forms.Form):
     def save(self):
         User.objects.create_user(username=self.cleaned_data['username'], email=self.cleaned_data['email'], password=self.cleaned_data['password1'])
 
-# Comment
-class CommentForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        self.author = kwargs.pop('author', None)
-        self.sanpham = kwargs.pop('sanpham', None)
-        super().__init__(*args, **kwargs)
-    def save(self, commit=True):
-        comment = super().save(commit=False)
-        comment.author = self.author
-        comment.sanpham = self.sanpham
-        comment.save()
-    class Meta:
-        model = Comment
-        fields = ["body"]
 
 ### Search
 ###################################################################################################################
@@ -154,12 +158,27 @@ def Form_DangKi(request):
         # gọi các hàm ở forms.py nếu hợp lệ
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/login')
+            return HttpResponseRedirect('')
     return form
 
 
 ### Form comment sản phẩm
 ###################################################################################################################
+# Comment
+class CommentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.author = kwargs.pop('author', None)
+        self.sanpham = kwargs.pop('sanpham', None)
+        super().__init__(*args, **kwargs)
+    def save(self, commit=True):
+        comment = super().save(commit=False)
+        comment.author = self.author
+        comment.sanpham = self.sanpham
+        comment.save()
+    class Meta:
+        model = Comment
+        fields = ["body"]
+        
 def Form_Comment_SP(request, pk):
     sanpham = get_object_or_404(SanPham, pk=pk)
     form = CommentForm()
@@ -170,7 +189,14 @@ def Form_Comment_SP(request, pk):
             return HttpResponseRedirect(request.path)
     return form
 
+## Các danh mục sản phẩm
+def MenuSP_categories(request):
+    categories = LoaiSP.objects.filter(is_sub = False)
+    return categories
 
+def MenuSP_active_category(request):
+    active_category = request.GET.get('category', '')
+    return active_category
 
 def DanhMucSP(request):
     active_category = MenuSP_active_category(request)
@@ -178,3 +204,27 @@ def DanhMucSP(request):
         sanpham = SanPham.objects.filter(category__slug = active_category)
     return sanpham
 ###################################################################################################################
+
+def tilesanpham(request):
+    listcolor = ['red', '#ff9900', '#ffd000', 'yellow', '#bbff00', '#00ff00', '#00ff99', '#00ffdd', '#0099ff', 'blue', '#aa00ff', '#cc00ff', '#ff00ff', '#ff0088', '#ff0055', '#ff9900', '#ffd000', 'yellow', '#bbff00', '#00ff00', '#00ff99', '#00ffdd', '#0099ff', 'blue', '#aa00ff', '#cc00ff', '#ff00ff', '#ff0088', '#ff0055']
+    colors = []
+    i=0
+    demloaisp=[]
+    labels = []
+
+    # tạo phương thức total_sanpham để tính tổng sản phẩm
+    loaisp = LoaiSP.objects.annotate(total_sanpham=models.Count('sanpham'))
+    for loai in loaisp:
+        if loai.total_sanpham > 0:
+            demloaisp.append(loai.total_sanpham)
+            labels.append(loai)
+            colors.append(listcolor[i])
+            i+=1
+
+    plt.pie(demloaisp, labels=labels, colors=colors, autopct='%1.1f%%')
+    # Lưu đồ thị vào một file ảnh
+    graph_path = 'app_ban_hang/static/images/graph/graph.png'
+    plt.savefig(graph_path)
+
+
+

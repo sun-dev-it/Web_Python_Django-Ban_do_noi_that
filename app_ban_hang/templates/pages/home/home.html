@@ -13,6 +13,7 @@
     <div class="menu-nav border_right">
       <a href="/" class="nav-link"><center><div class="menu_blog">TRANG CHỦ </div></center></a>
       <a class="nav-link item-menu" href="#gioithieucuahang">Giới thiệu cửa hàng<i class="mui_ten right"></i></a>
+      <a class="nav-link item-menu" href="#tilesanpham">Tỉ lệ sản phẩm<i class="mui_ten right"></i></a>
       <a class="nav-link item-menu" href="#topbanchay">Top bán chạy<i class="mui_ten right"></i></a>
       <a class="nav-link item-menu" href="#spmoi">Sản phẩm mới nhất<i class="mui_ten right"></i></a>
       <a class="nav-link item-menu" href="#tinnoibat">Tin nổi bật<i class="mui_ten right"></i></a>
@@ -50,6 +51,12 @@
     {% for nd in Home %}
       {{nd.NoiDung|safe|linebreaks}}
     {% endfor %}
+    
+    
+    <h3 id="tilesanpham"></h3>
+    <h3 class="topban"> TỈ LỆ SẢN PHẨM CÓ TRONG CỬA HÀNG </h3>
+    <center><img src="{% static 'images/graph/graph.png' %}" alt="Graph"></center>
+
 
     <h3 id="topbanchay"></h3>
     <h3 class="topban"> TOP BÁN CHẠY </h3>

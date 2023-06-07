@@ -26,7 +26,7 @@ class SanPham(models.Model):
     LuotMua = models.IntegerField(default=0)
     TonKho = models.IntegerField()
     def __str__(self):
-        return self.TenSP
+        return str(self.TenSP)
     def imageurl(self):
         try:
             url = self.image.url
@@ -45,7 +45,6 @@ class SanPham(models.Model):
         except:
             url = ''
         return url
-
 
 # Comment
 class Comment(models.Model):
@@ -108,7 +107,7 @@ class Blog(models.Model):
     TieuDe = models.CharField(max_length=200)
     NoiDung = models.TextField()
     NgayDang = models.DateTimeField(auto_now_add=True)
-    Like = models.ManyToManyField(User, related_name='like_blog')
+    Like = models.ManyToManyField(User, related_name='like_blog', blank = True)
 
     def imageurl(self):
         try:

@@ -1,21 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Đăng nhập</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        {% for key, value in form.errors.items %}
-            {{value}}
-        {% endfor %}
-        <p><lavel>Tài khoản :</lavel>{{form.username}}</p>
-        <p><lavel>Mật khẩu :</lavel>{{form.password}}</p>
-        <input type="hidden" name='next' value="/"/>
-        <input type="submit" value="Đăng nhâp"/>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{%block title %} Đăng nhập {% endblock %}
+
+{% load static %}
+
+{% block linkweb %} <i><a href="{% url 'home' %}" class="link-webs"><img src="{% static 'images/icon_home.png' %}" class="icon_home"></a>><a href="{% url 'login' %}" class="link-webs"><u>Đăng nhập</u></i></a>> {% endblock linkweb %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<center>
+    <div class="col-sm-5">
+        <div class="khung_dn_dk">
+            <div class="row">
+                <div class="col-sm-6 khung_dangnhap">
+                    <h4> Đăng nhập </h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for key, value in form.errors.items %}
+                            {{value}}
+                        {% endfor %}
+                        <p><lavel>Tài khoản :</lavel>{{form.username}}</p>
+                        <p><lavel>Mật khẩu :</lavel>{{form.password}}</p>
+                        <input type="hidden" name='next' value="/"/>
+                        <input type="submit" value="Đăng nhâp"/>
+                    </form>
+                </div>
+                <div class="col-sm-6 hello_login khung_dangnhap">
+                    <br>
+                    <h5 class="xinchao"><b>Nam Việt center</b></h5>
+                    <p style="font-size: 20px"> luxury furniture </p>
+                    <br><br>
+                    <a href="{% url 'register' %}" class="link_dk"> Đăng kí </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}

@@ -10,16 +10,14 @@
 <br/>
 <div class="khung-ct-pf"> 
     <h4>Đơn hàng</h4>
-    <table>
-      <tr class="khung-pf">
-        <th></th>
-        <th class="al-right"></th>
-      </tr>
-      <tr>
-        <th class="khung-pf"></th>
-        <th class="al-right"></th>
-      </tr>
-    </table>
+    <ul>
+      {% for item in items %}
+        <li>
+          {{item.TenSP}}
+        </li>
+      {% endfor %}
+    </ul>
+    
 </div>
 
 
