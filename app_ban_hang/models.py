@@ -50,6 +50,7 @@ class SanPham(models.Model):
 class Comment(models.Model):
     sanpham = models.ForeignKey(SanPham, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    check = models.BooleanField(default=False)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
@@ -76,6 +77,10 @@ class DonHang(models.Model):
         count = sum([item.get_total for item in orderitems])
         return count
 
+    @property
+    def DaMuaHang(self):
+        self.complete= True
+        
 class OrderItem(models.Model):
     sp = models.ForeignKey(SanPham, on_delete=models.SET_NULL, blank = True,  null = True)
     order = models.ForeignKey(DonHang, on_delete=models.SET_NULL, blank = True, null = True)

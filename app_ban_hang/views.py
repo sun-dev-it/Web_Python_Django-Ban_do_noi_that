@@ -114,10 +114,12 @@ def muahang(request):
 # Đơn hàng
 def donhang(request):
     data = {
+        'items': SPDaMua(request)[0],
         'Base': Base.objects.all(),
         'Top5Blog':Blog.objects.all().order_by('-id')[:5],
         'SanPhamTrongGio':SanPhamTrongGio(request), 
         'TongSPTrongGio':TongSPTrongGio(request),
+        'TongTienSPTrongGio':TongTienSPTrongGio(request),
         'DanhMucSP':MenuSP_categories(request),
         'active_category': MenuSP_active_category(request)
     }

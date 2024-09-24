@@ -23,7 +23,6 @@ def TongSPTrongGio(request):
         cartitems = order['get_items']
     return cartitems
 
-
 ## Danh sách sản phẩm đã thêm vào giỏ hàng
 def SanPhamTrongGio(request):
     if request.user.is_authenticated:
@@ -59,18 +58,30 @@ def XoaDonHang(request, item_id):
     return redirect('giohang')
 
 def DonHangDaMua(request, DonHang_id):
+    Mua = get_object_or_404(DonHang, id=DonHang_id)
     if request.user.is_authenticated:
+        Mua.complete = True
+        #items = Mua.orderitem_set.all()
+        #for item in items:
+        #    item.sp.LuotMua +=1
+        #    item.sp.TonKho -=1
+        #    print(item.sp.LuotMua)
+        #    print(item.sp.TonKho)
+        #    Mua.save()
+        Mua.save()
+    return redirect('donhang')
+
+def SPDaMua(request):
+    if request.user.is_authenticated:
+        items=[]
         customer = request.user
-        donhang, created = DonHang.objects.get_or_create(customer=customer, complete=False)
-        items = donhang.orderitem_set.all()
+        donhang = DonHang.objects.all()
+        for i in donhang:
+            if i.complete == True and i.customer==customer:
+                items.append(i.orderitem_set.all())
     else:
         items=[]
-    data = {
-        'items':items
-    }
-    return redirect('donhang', data)
-
-
+    return  items
 ###################################################################
 # Thêm số lượng sản phẩm
 def updateitem(request):
@@ -141,6 +152,7 @@ def searched(request):
     if request.method == "POST":
         searched = request.POST ["searched"]
     return searched
+
 def keys(request):
     if request.method == "POST":
         searched = request.POST ["searched"]

@@ -26,6 +26,7 @@
             <img src="{% static 'images/-.png' %}" data-sanpham={{item.sp.id}} data-user={{user}} data-action = 'remove' class="update_giohang change_sl1">
             {{item.soluong}}
             <img src="{% static 'images/+.png' %}" data-sanpham={{item.sp.id}} data-user={{user}} data-action = 'add' class="update_giohang change_sl2">
+          </th>
           <th>{{item.sp.GiaSP}}</th>
           <th><a href="{% url 'XoaDonHang' item_id=item.id %}" class="xoasp">xóa</a></th>
         </tr>

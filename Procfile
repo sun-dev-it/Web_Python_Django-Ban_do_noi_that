@@ -1,1 +1,0 @@
-web: gunicorn web_ban_hang.wsgi

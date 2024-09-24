@@ -5,25 +5,64 @@ from .models import *
 class CommentInline(admin.TabularInline):
     model = Comment
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['author', 'body', 'check', 'date']
+    list_filter = ['check']
+
 class SanPhamAdmin(admin.ModelAdmin):
-    list_display = ['LoaiSP', 'TenSP', 'GiaSP', 'LuotMua', 'TonKho', 'DanhGia']
-    list_filter = ['TonKho']
+    list_display = ['TenSP', 'GiaSP', 'LuotMua', 'TonKho', 'DanhGia']
+    list_filter = ['category']
     search_fields = ['TenSP']
     inlines = [CommentInline]
 
-admin.site.register(Base)
-admin.site.register(SanPham)
-admin.site.register(Blog)
+class DonHangAdmin(admin.ModelAdmin):
+    list_display = ['customer', 'complete', 'date_order']
+    list_filter = ['customer']
+
+
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ['TieuDe', 'NgayDang']
+    search_fields = ['TieuDe']
+    list_filter = ['NgayDang']
+
+## Các comment sản phẩm
+admin.site.register(Comment, CommentAdmin)
+
+## Các sản phẩm
+admin.site.register(SanPham, SanPhamAdmin)
+
+## Thêm danh mục sản phẩm
 admin.site.register(LoaiSP)
-admin.site.register(DonHang)
-admin.site.register(OrderItem)
-admin.site.register(ThongTinNguoiMua)
+
+## Các đơn hàng khách hàng đã thêm vào giỏ hoặc đã mua
+admin.site.register(DonHang, DonHangAdmin)
+
+## Các bài blog
+admin.site.register(Blog, BlogAdmin)
+
+## Nội dung trang liên hệ
 admin.site.register(LienHe)
+
+## Nội dung trang tư vấn nội thất
 admin.site.register(TuVanNoiThat)
 
-admin.site.register(Carousel_Home)
+## NỘi dung trang home
 admin.site.register(Home)
 
 
+## Các sản phẩm được thêm vào giỏ hàng
+# admin.site.register(OrderItem)
+
+
+## Ảnh động trên trang home
+# admin.site.register(Carousel_Home)
+
+
+## Thay đổi logo web, số điện thoại ...
+#admin.site.register(Base)
+
+
+## THông tin người mua (đang phát triển)
+# admin.site.register(ThongTinNguoiMua)
 
 ###################################################################################################

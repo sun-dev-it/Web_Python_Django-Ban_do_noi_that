@@ -7,18 +7,26 @@
 {% block linkweb %} <i><a href="{% url 'home' %}" class="link-webs"><img src="{% static 'images/icon_home.png' %}" class="icon_home"></a>><a href="/" class="link-webs"><u>Đơn hàng</u></i></a>> {% endblock linkweb %}
 
 {% block donhang %}
-<br/>
 <div class="khung-ct-pf"> 
-    <h4>Đơn hàng</h4>
-    <ul>
-      {% for item in items %}
-        <li>
-          {{item.TenSP}}
-        </li>
-      {% endfor %}
-    </ul>
-    
+  <h4>Đơn hàng</h4>
+  <hr/>
+  <table>
+    <tr>
+      <th>Tên sản phẩm</th>
+      <th>Ảnh</th>
+      <th>Số lượng</th>
+      <th>Giá</th>
+    </tr>
+    {% for item in items %}
+      <tr>
+        <th>{{item.sp.TenSP}}</th>
+        <th><img src="{{item.sp.imageurl}}" style="width:100px; height: 50px"></th>
+        <th>{{item.sp.GiaSP}}</th>
+      </tr>
+    {% endfor %}
+  </table>
+  <hr>
+  <div class="kmuahang">
+    <b>Tổng tiền sản phẩm: <b>{{TongTienSPTrongGio.get_money}}<sup>đ</sup>
 </div>
-
-
 {% endblock donhang %}

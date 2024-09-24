@@ -46,12 +46,23 @@ textarea{
 .xinchao{
     font-size: 35px;
 }
-
 .khung_dangnhap{
     padding: 50px 20px;
 }
 
-.link_dk{
+.khung_dangnhap2 {
+    p {
+        input {
+            width: 50%;
+        }
+        label {
+            text-align: start;
+            width: 40%;
+        }
+    }
+}
+
+.link_dk{   
     border: 1px solid rgb(230, 230, 230);
     color: rgb(247, 247, 247);
     text-decoration: none;

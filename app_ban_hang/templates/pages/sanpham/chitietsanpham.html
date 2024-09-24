@@ -48,9 +48,11 @@
             <hr>
         </div>
         {% for comment in sanpham.comments.all %}
-            <img src="{% static 'images/avt.png' %}" class="avt_cm"><b>{{comment.author}}</b>
-            <p>{{comment.body|linebreaks}}</p>
-            <p class="date-cm">{{comment.date}}</p>
+            {% if comment.check == True %}
+                <img src="{% static 'images/avt.png' %}" class="avt_cm"><b>{{comment.author}}</b>
+                <p>{{comment.body|linebreaks}}</p>
+                <p class="date-cm">{{comment.date}}</p>
+            {% endif %}
         {% endfor %}
         
         {% if user.username %}
@@ -59,7 +61,7 @@
                 <p><label>Bình luận: </label></p>
                 {{form.body}}
                 <br/>
-                <div class="bl"><input type="submit" value="Bình luận"/></div>
+                <div class="bl"><input type="submit" value="Bình luận" onclick="ThongBaoDaBinhLuan()"/></div>
             </form>
         {% endif %}
 

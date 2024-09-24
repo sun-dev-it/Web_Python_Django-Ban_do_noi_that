@@ -24,7 +24,7 @@
                 <div class="col-sm-6 khung_dangnhap">
                         <!-- khi bấm nút đăng kí sẽ load lại, phương thức post ẩn dữ liệu -->
                         <form action='.' method='POST'>
-                            <div class="">
+                            <div class="khung_dangnhap2">
                                 {% csrf_token %}
                                 {{form.as_p}}
                                 <input type="submit" value="Đăng kí"/>

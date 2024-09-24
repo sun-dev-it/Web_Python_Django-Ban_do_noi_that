@@ -1,4 +1,0 @@
-Django
-Django-heroku
-Jinja2
-gunicorn

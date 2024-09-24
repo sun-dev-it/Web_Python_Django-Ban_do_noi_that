@@ -50,3 +50,7 @@ function thongbao_login(user) {
         alert('Vui lòng đăng nhập!')
     }
 }
+
+function ThongBaoDaBinhLuan() {
+    alert('Bình luận của bạn đã được ghi nhận')
+}
