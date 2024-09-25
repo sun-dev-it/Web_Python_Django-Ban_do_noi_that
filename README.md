@@ -1,5 +1,24 @@
-# chạy web
-python3 manage.py runserver 
+# Giới thiệu về web: 
+1. Viết bằng Django, sử dụng cơ sở dữ liệu MySQL
+2. Web bán hàng nội thất giúp người dùng có thể xem và mua các sản phẩm thông qua giỏ hàng, có thể thích các bài blog của cửa hàng viết
+3. Ngoài ra ở trang chủ còn thống kê các sản phẩm bằng thư viện Matplotlib của Python, các sản phẩm bán chạy nhất, các sản phẩm mới nhất, …
 
+# Các chức năng
+## Admin:
+1. Quản lí sản phẩm 
+- CRUD sản phẩm (tên, ảnh, giá, …)
+- Thêm danh mục các loại sản phẩm
+- Duyệt comment về sản phẩm của user
+2. Quản lí blog: CRUD các bài blog về sản phẩm
+3. Quản lí user: CRUD các user
+## User:
+1. Thao tác với sản phẩm:
+- Thêm sản phẩm vào giỏ hàng
+- Comment các sản phẩm
+2. Thao tác với giỏ hàng
+- Tăng, giảm số lượng, xóa sản phầm trong giỏ hàng
+- Mua hàng
+3. Thao tác với các bài blog: like bài blog
 
-# Cơ sở dử liệu Mysql: web-ban-hang.sql     // thay đổi tên, password của DATABASES trong settings để kết nối đến Mysql
+# Cơ sở dữ liệu
+![](media/introduction/database.png)
