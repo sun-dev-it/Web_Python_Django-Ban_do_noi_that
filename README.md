@@ -20,5 +20,8 @@
 - Mua hàng
 3. Thao tác với các bài blog: like bài blog
 
+# Video Demo
+[![Xem video trên YouTube](https://img.youtube.com/vi/1ygcXwYvV3k/0.jpg)](https://www.youtube.com/watch?v=1ygcXwYvV3k)
+
 # Cơ sở dữ liệu
 ![](media/introduction/database.png)
